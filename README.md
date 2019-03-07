@@ -1,4 +1,4 @@
-# fs-courses
+# Problem Diagnosis and Troubleshooting Lab for IBM Cloud Private
 
 K8 and ICP problem determination and debugging courses.  These courses are viewed and presented using the Collector application, which is also included in this github account.  Refer to the fs-collector repository for additional information regarding Collector.  
 
