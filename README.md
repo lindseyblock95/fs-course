@@ -42,6 +42,9 @@ During this course the student will examine IBM Cloud Private. This starts with 
 
 There are no Hint or Step-byStep capabilities for this course. 
 
-#### File formats
 
-Each course 
+--- 
+
+## Lab Setup
+
+Refer to the LabSetup.md file in this repository for detailed instructions for setting up the Kubernetes environment for these courses.
