@@ -42,6 +42,16 @@ During this course the student will examine IBM Cloud Private. This starts with 
 
 There are no Hint or Step-byStep capabilities for this course. 
 
+---
+## Useful Files
+
+Within each lab for course FS03 the __Resourses__ section contains references to files that are useful or needed to complete the lab.  The file references __MUST__ be changed to the location where the files are copied.  It is recommended the location be a public github location.  The exisitng location __https://github.ibm.com/__ is not a public accessable location. 
+
+```
+IMPORTANT NOTICE:
+ 
+The file references MUST be changed to the location where the useful files are copied. 
+```
 
 --- 
 
