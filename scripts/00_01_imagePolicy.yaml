@@ -1,0 +1,18 @@
+--- # Problem Diagnosis and Troubleshooting Lab 
+--- # Create ClusterImagePolicy to allow pulling images from IBMICPCOC docker repository.  
+---
+--- # Example commands to view ClusterImagePolicy
+--- #k api-resources
+--- #k get ClusterImagePolicy ibmcloud-default-cluster-image-policy -o json
+--- #k get ClusterImagePolicy ibmicpcoc -o json
+---
+apiVersion: securityenforcement.admission.cloud.ibm.com/v1beta1
+kind: ClusterImagePolicy
+metadata:
+  name: ibmicpcoc
+spec:
+  repositories:
+  - name: docker.io/ibmicpcoc/*
+    policy:
+      va:
+        enabled: false

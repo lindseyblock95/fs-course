@@ -1,0 +1,1908 @@
+--- # Fast Start :: Problem Diagnosis and Troubleshooting Lab 
+--- # Deployment with corrected syntax, the - (single dash) on the name of containers:
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pink-house
+  namespace: pink
+  labels:
+    app: pink-house
+spec:
+  selector:
+    matchLabels:
+      app: pink-house
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: pink-house
+    spec:
+      containers:
+      - name: pink-house
+        image: ibmicpcoc/house:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: pink-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: pink-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: olive-house
+  namespace: olive
+  labels:
+    app: olive-house
+spec:
+  selector:
+    matchLabels:
+      app: olive-house
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: olive-house
+    spec:
+      containers:
+      - name: olive-house
+        image: ibmicpcoc/house:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: olive-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: olive-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: salmon-house
+  namespace: salmon
+  labels:
+    app: salmon-house
+spec:
+  selector:
+    matchLabels:
+      app: salmon-house
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: salmon-house
+    spec:
+      containers:
+      - name: salmon-house
+        image: ibmicpcoc/house:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: salmon-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: salmon-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: red-house
+  namespace: red
+  labels:
+    app: red-house
+spec:
+  selector:
+    matchLabels:
+      app: red-house
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: red-house
+    spec:
+      containers:
+      - name: red-house
+        image: ibmicpcoc/house:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: red-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: red-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lime-house
+  namespace: lime
+  labels:
+    app: lime-house
+spec:
+  selector:
+    matchLabels:
+      app: lime-house
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: lime-house
+    spec:
+      containers:
+      - name: lime-house
+        image: ibmicpcoc/house:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lime-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lime-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: green-house
+  namespace: green
+  labels:
+    app: green-house
+spec:
+  selector:
+    matchLabels:
+      app: green-house
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: green-house
+    spec:
+      containers:
+      - name: green-house
+        image: ibmicpcoc/house:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: green-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: green-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: teal-house
+  namespace: teal
+  labels:
+    app: teal-house
+spec:
+  selector:
+    matchLabels:
+      app: teal-house
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: teal-house
+    spec:
+      containers:
+      - name: teal-fs-app01
+        image: ibmicpcoc/house:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: teal-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: teal-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aqua-house
+  namespace: aqua
+  labels:
+    app: aqua-house
+spec:
+  selector:
+    matchLabels:
+      app: aqua-house
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: aqua-house
+    spec:
+      containers:
+      - name: aqua-house
+        image: ibmicpcoc/house:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: aqua-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: aqua-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gold-house
+  namespace: gold
+  labels:
+    app: gold-house
+spec:
+  selector:
+    matchLabels:
+      app: gold-house
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: gold-house
+    spec:
+      containers:
+      - name: gold-house
+        image: ibmicpcoc/house:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: gold-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: gold-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: khaki-house
+  namespace: khaki
+  labels:
+    app: khaki-house
+spec:
+  selector:
+    matchLabels:
+      app: khaki-house
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: khaki-house
+    spec:
+      containers:
+      - name: khaki-house
+        image: ibmicpcoc/house:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: khaki-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: khaki-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: yellow-house
+  namespace: yellow
+  labels:
+    app: yellow-house
+spec:
+  selector:
+    matchLabels:
+      app: yellow-house
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: yellow-house
+    spec:
+      containers:
+      - name: yellow-house
+        image: ibmicpcoc/house:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: yellow-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: yellow-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: coral-house
+  namespace: coral
+  labels:
+    app: coral-house
+spec:
+  selector:
+    matchLabels:
+      app: coral-house
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: coral-house
+    spec:
+      containers:
+      - name: coral-house
+        image: ibmicpcoc/house:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: coral-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: coral-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orange-house
+  namespace: orange
+  labels:
+    app: orange-house
+spec:
+  selector:
+    matchLabels:
+      app: orange-house
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: orange-house
+    spec:
+      containers:
+      - name: orange-house
+        image: ibmicpcoc/house:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: orange-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: orange-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: navy-house
+  namespace: navy
+  labels:
+    app: navy-house
+spec:
+  selector:
+    matchLabels:
+      app: navy-house
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: navy-house
+    spec:
+      containers:
+      - name: navy-house
+        image: ibmicpcoc/house:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: navy-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: navy-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blue-house
+  namespace: blue
+  labels:
+    app: blue-house
+spec:
+  selector:
+    matchLabels:
+      app: blue-house
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: blue-house
+    spec:
+      containers:
+      - name: blue-house
+        image: ibmicpcoc/house:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: blue-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: blue-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lightblue-house
+  namespace: lightblue
+  labels:
+    app: lightblue-house
+spec:
+  selector:
+    matchLabels:
+      app: lightblue-house
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: lightblue-house
+    spec:
+      containers:
+      - name: lightblue-house
+        image: ibmicpcoc/house:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lightblue-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lightblue-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: brown-house
+  namespace: brown
+  labels:
+    app: brown-house
+spec:
+  selector:
+    matchLabels:
+      app: brown-house
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: brown-house
+    spec:
+      containers:
+      - name: brown-house
+        image: ibmicpcoc/house:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: brown-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: brown-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: maroon-house
+  namespace: maroon
+  labels:
+    app: maroon-house
+spec:
+  selector:
+    matchLabels:
+      app: maroon-house
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: maroon-house
+    spec:
+      containers:
+      - name: maroon-house
+        image: ibmicpcoc/house:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: maroon-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: maroon-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tan-house
+  namespace: tan
+  labels:
+    app: tan-house
+spec:
+  selector:
+    matchLabels:
+      app: tan-house
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: tan-house
+    spec:
+      containers:
+      - name: tan-house
+        image: ibmicpcoc/house:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: tan-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: tan-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wheat-house
+  namespace: wheat
+  labels:
+    app: wheat-house
+spec:
+  selector:
+    matchLabels:
+      app: wheat-house
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: wheat-house
+    spec:
+      containers:
+      - name: wheat-house
+        image: ibmicpcoc/house:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: wheat-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: wheat-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: plum-house
+  namespace: plum
+  labels:
+    app: plum-house
+spec:
+  selector:
+    matchLabels:
+      app: plum-house
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: plum-house
+    spec:
+      containers:
+      - name: plum-house
+        image: ibmicpcoc/house:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: plum-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: plum-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: magenta-house
+  namespace: magenta
+  labels:
+    app: magenta-house
+spec:
+  selector:
+    matchLabels:
+      app: magenta-house
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: magenta-house
+    spec:
+      containers:
+      - name: magenta-house
+        image: ibmicpcoc/house:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: magenta-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: magenta-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: purple-house
+  namespace: purple
+  labels:
+    app: purple-house
+spec:
+  selector:
+    matchLabels:
+      app: purple-house
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: purple-house
+    spec:
+      containers:
+      - name: purple-house
+        image: ibmicpcoc/house:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: purple-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: purple-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gray-house
+  namespace: gray
+  labels:
+    app: gray-house
+spec:
+  selector:
+    matchLabels:
+      app: gray-house
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: gray-house
+    spec:
+      containers:
+      - name: gray-house
+        image: ibmicpcoc/house:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: gray-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: gray-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: beige-house
+  namespace: beige
+  labels:
+    app: beige-house
+spec:
+  selector:
+    matchLabels:
+      app: beige-house
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: beige-house
+    spec:
+      containers:
+      - name: beige-house
+        image: ibmicpcoc/house:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: beige-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: beige-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi            
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: black-house
+  namespace: black
+  labels:
+    app: black-house
+spec:
+  selector:
+    matchLabels:
+      app: black-house
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: black-house
+    spec:
+      containers:
+      - name: black-house
+        image: ibmicpcoc/house:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: black-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: black-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aliceblue-house
+  namespace: aliceblue
+  labels:
+    app: aliceblue-house
+spec:
+  selector:
+    matchLabels:
+      app: aliceblue-house
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: aliceblue-house
+    spec:
+      containers:
+      - name: aliceblue-house
+        image: ibmicpcoc/house:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: aliceblue-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: aliceblue-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: azure-house
+  namespace: azure
+  labels:
+    app: azure-house
+spec:
+  selector:
+    matchLabels:
+      app: azure-house
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: azure-house
+    spec:
+      containers:
+      - name: azure-house
+        image: ibmicpcoc/house:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: azure-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: azure-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: burlywood-house
+  namespace: burlywood
+  labels:
+    app: burlywood-house
+spec:
+  selector:
+    matchLabels:
+      app: burlywood-house
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: burlywood-house
+    spec:
+      containers:
+      - name: burlywood-house
+        image: ibmicpcoc/house:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: burlywood-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: burlywood-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cornsilk-house
+  namespace: cornsilk
+  labels:
+    app: cornsilk-house
+spec:
+  selector:
+    matchLabels:
+      app: cornsilk-house
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: cornsilk-house
+    spec:
+      containers:
+      - name: cornsilk-house
+        image: ibmicpcoc/house:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: cornsilk-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: cornsilk-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: darkgray-house
+  namespace: darkgray
+  labels:
+    app: darkgray-house
+spec:
+  selector:
+    matchLabels:
+      app: darkgray-house
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: darkgray-house
+    spec:
+      containers:
+      - name: darkgray-house
+        image: ibmicpcoc/house:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkgray-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkgray-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: darkred-house
+  namespace: darkred
+  labels:
+    app: darkred-house
+spec:
+  selector:
+    matchLabels:
+      app: darkred-house
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: darkred-house
+    spec:
+      containers:
+      - name: darkred-house
+        image: ibmicpcoc/house:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkred-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkred-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deeppink-house
+  namespace: deeppink
+  labels:
+    app: deeppink-house
+spec:
+  selector:
+    matchLabels:
+      app: deeppink-house
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: deeppink-house
+    spec:
+      containers:
+      - name: deeppink-house
+        image: ibmicpcoc/house:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: deeppink-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: deeppink-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: firebrick-house
+  namespace: firebrick
+  labels:
+    app: firebrick-house
+spec:
+  selector:
+    matchLabels:
+      app: firebrick-house
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: firebrick-house
+    spec:
+      containers:
+      - name: firebrick-house
+        image: ibmicpcoc/house:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: firebrick-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: firebrick-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: indigo-house
+  namespace: indigo
+  labels:
+    app: indigo-house
+spec:
+  selector:
+    matchLabels:
+      app: indigo-house
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: indigo-house
+    spec:
+      containers:
+      - name: indigo-house
+        image: ibmicpcoc/house:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: indigo-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: indigo-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lavender-house
+  namespace: lavender
+  labels:
+    app: lavender-house
+spec:
+  selector:
+    matchLabels:
+      app: lavender-house
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: lavender-house
+    spec:
+      containers:
+      - name: lavender-house
+        image: ibmicpcoc/house:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lavender-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lavender-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mintcream-house
+  namespace: mintcream
+  labels:
+    app: mintcream-house
+spec:
+  selector:
+    matchLabels:
+      app: mintcream-house
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mintcream-house
+    spec:
+      containers:
+      - name: mintcream-house
+        image: ibmicpcoc/house:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: mintcream-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: mintcream-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mistyrose-house
+  namespace: mistyrose
+  labels:
+    app: mistyrose-house
+spec:
+  selector:
+    matchLabels:
+      app: mistyrose-house
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mistyrose-house
+    spec:
+      containers:
+      - name: mistyrose-house
+        image: ibmicpcoc/house:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: mistyrose-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: mistyrose-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orchid-house
+  namespace: orchid
+  labels:
+    app: orchid-house
+spec:
+  selector:
+    matchLabels:
+      app: orchid-house
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: orchid-house
+    spec:
+      containers:
+      - name: orchid-house
+        image: ibmicpcoc/house:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: orchid-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: orchid-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: palegreen-house
+  namespace: palegreen
+  labels:
+    app: palegreen-house
+spec:
+  selector:
+    matchLabels:
+      app: palegreen-house
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: palegreen-house
+    spec:
+      containers:
+      - name: palegreen-house
+        image: ibmicpcoc/house:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: palegreen-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: palegreen-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: steelblue-house
+  namespace: steelblue
+  labels:
+    app: steelblue-house
+spec:
+  selector:
+    matchLabels:
+      app: steelblue-house
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: steelblue-house
+    spec:
+      containers:
+      - name: steelblue-house
+        image: ibmicpcoc/house:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: steelblue-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: steelblue-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tomato-house
+  namespace: tomato
+  labels:
+    app: tomato-house
+spec:
+  selector:
+    matchLabels:
+      app: tomato-house
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: tomato-house
+    spec:
+      containers:
+      - name: tomato-house
+        image: ibmicpcoc/house:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: tomato-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: tomato-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---            

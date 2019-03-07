@@ -1,0 +1,1909 @@
+--- # Fast Start :: Problem Diagnosis and Troubleshooting Lab 
+--- # Deployment with cpu resource request over node limit
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pink-carbon
+  namespace: pink
+  labels:
+    app: pink-carbon
+spec:
+  selector:
+    matchLabels:
+      app: pink-carbon
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: pink-carbon
+    spec:
+      containers:
+      - name: pink-carbon
+        image: ibmicpcoc/carbon:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: pink-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: pink-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 25000m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: olive-carbon
+  namespace: olive
+  labels:
+    app: olive-carbon
+spec:
+  selector:
+    matchLabels:
+      app: olive-carbon
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: olive-carbon
+    spec:
+      containers:
+      - name: olive-carbon
+        image: ibmicpcoc/carbon:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: olive-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: olive-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 25000m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: salmon-carbon
+  namespace: salmon
+  labels:
+    app: salmon-carbon
+spec:
+  selector:
+    matchLabels:
+      app: salmon-carbon
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: salmon-carbon
+    spec:
+      containers:
+      - name: salmon-carbon
+        image: ibmicpcoc/carbon:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: salmon-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: salmon-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 25000m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: red-carbon
+  namespace: red
+  labels:
+    app: red-carbon
+spec:
+  selector:
+    matchLabels:
+      app: red-carbon
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: red-carbon
+    spec:
+      containers:
+      - name: red-carbon
+        image: ibmicpcoc/carbon:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: red-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: red-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 25000m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lime-carbon
+  namespace: lime
+  labels:
+    app: lime-carbon
+spec:
+  selector:
+    matchLabels:
+      app: lime-carbon
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: lime-carbon
+    spec:
+      containers:
+      - name: lime-carbon
+        image: ibmicpcoc/carbon:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lime-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lime-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 25000m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: green-carbon
+  namespace: green
+  labels:
+    app: green-carbon
+spec:
+  selector:
+    matchLabels:
+      app: green-carbon
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: green-carbon
+    spec:
+      containers:
+      - name: green-carbon
+        image: ibmicpcoc/carbon:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: green-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: green-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 25000m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: teal-carbon
+  namespace: teal
+  labels:
+    app: teal-carbon
+spec:
+  selector:
+    matchLabels:
+      app: teal-carbon
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: teal-carbon
+    spec:
+      containers:
+      - name: teal-fs-app01
+        image: ibmicpcoc/carbon:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: teal-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: teal-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 25000m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aqua-carbon
+  namespace: aqua
+  labels:
+    app: aqua-carbon
+spec:
+  selector:
+    matchLabels:
+      app: aqua-carbon
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: aqua-carbon
+    spec:
+      containers:
+      - name: aqua-carbon
+        image: ibmicpcoc/carbon:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: aqua-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: aqua-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 25000m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gold-carbon
+  namespace: gold
+  labels:
+    app: gold-carbon
+spec:
+  selector:
+    matchLabels:
+      app: gold-carbon
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: gold-carbon
+    spec:
+      containers:
+      - name: gold-carbon
+        image: ibmicpcoc/carbon:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: gold-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: gold-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 25000m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: khaki-carbon
+  namespace: khaki
+  labels:
+    app: khaki-carbon
+spec:
+  selector:
+    matchLabels:
+      app: khaki-carbon
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: khaki-carbon
+    spec:
+      containers:
+      - name: khaki-carbon
+        image: ibmicpcoc/carbon:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: khaki-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: khaki-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 25000m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: yellow-carbon
+  namespace: yellow
+  labels:
+    app: yellow-carbon
+spec:
+  selector:
+    matchLabels:
+      app: yellow-carbon
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: yellow-carbon
+    spec:
+      containers:
+      - name: yellow-carbon
+        image: ibmicpcoc/carbon:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: yellow-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: yellow-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 25000m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: coral-carbon
+  namespace: coral
+  labels:
+    app: coral-carbon
+spec:
+  selector:
+    matchLabels:
+      app: coral-carbon
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: coral-carbon
+    spec:
+      containers:
+      - name: coral-carbon
+        image: ibmicpcoc/carbon:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: coral-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: coral-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 25000m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orange-carbon
+  namespace: orange
+  labels:
+    app: orange-carbon
+spec:
+  selector:
+    matchLabels:
+      app: orange-carbon
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: orange-carbon
+    spec:
+      containers:
+      - name: orange-carbon
+        image: ibmicpcoc/carbon:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: orange-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: orange-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 25000m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: navy-carbon
+  namespace: navy
+  labels:
+    app: navy-carbon
+spec:
+  selector:
+    matchLabels:
+      app: navy-carbon
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: navy-carbon
+    spec:
+      containers:
+      - name: navy-carbon
+        image: ibmicpcoc/carbon:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: navy-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: navy-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 25000m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blue-carbon
+  namespace: blue
+  labels:
+    app: blue-carbon
+spec:
+  selector:
+    matchLabels:
+      app: blue-carbon
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: blue-carbon
+    spec:
+      containers:
+      - name: blue-carbon
+        image: ibmicpcoc/carbon:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: blue-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: blue-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 25000m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lightblue-carbon
+  namespace: lightblue
+  labels:
+    app: lightblue-carbon
+spec:
+  selector:
+    matchLabels:
+      app: lightblue-carbon
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: lightblue-carbon
+    spec:
+      containers:
+      - name: lightblue-carbon
+        image: ibmicpcoc/carbon:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lightblue-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lightblue-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 25000m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: brown-carbon
+  namespace: brown
+  labels:
+    app: brown-carbon
+spec:
+  selector:
+    matchLabels:
+      app: brown-carbon
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: brown-carbon
+    spec:
+      containers:
+      - name: brown-carbon
+        image: ibmicpcoc/carbon:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: brown-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: brown-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 25000m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: maroon-carbon
+  namespace: maroon
+  labels:
+    app: maroon-carbon
+spec:
+  selector:
+    matchLabels:
+      app: maroon-carbon
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: maroon-carbon
+    spec:
+      containers:
+      - name: maroon-carbon
+        image: ibmicpcoc/carbon:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: maroon-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: maroon-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 25000m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tan-carbon
+  namespace: tan
+  labels:
+    app: tan-carbon
+spec:
+  selector:
+    matchLabels:
+      app: tan-carbon
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: tan-carbon
+    spec:
+      containers:
+      - name: tan-carbon
+        image: ibmicpcoc/carbon:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: tan-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: tan-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 25000m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wheat-carbon
+  namespace: wheat
+  labels:
+    app: wheat-carbon
+spec:
+  selector:
+    matchLabels:
+      app: wheat-carbon
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: wheat-carbon
+    spec:
+      containers:
+      - name: wheat-carbon
+        image: ibmicpcoc/carbon:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: wheat-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: wheat-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 25000m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: plum-carbon
+  namespace: plum
+  labels:
+    app: plum-carbon
+spec:
+  selector:
+    matchLabels:
+      app: plum-carbon
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: plum-carbon
+    spec:
+      containers:
+      - name: plum-carbon
+        image: ibmicpcoc/carbon:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: plum-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: plum-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 25000m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: magenta-carbon
+  namespace: magenta
+  labels:
+    app: magenta-carbon
+spec:
+  selector:
+    matchLabels:
+      app: magenta-carbon
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: magenta-carbon
+    spec:
+      containers:
+      - name: magenta-carbon
+        image: ibmicpcoc/carbon:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: magenta-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: magenta-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 25000m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: purple-carbon
+  namespace: purple
+  labels:
+    app: purple-carbon
+spec:
+  selector:
+    matchLabels:
+      app: purple-carbon
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: purple-carbon
+    spec:
+      containers:
+      - name: purple-carbon
+        image: ibmicpcoc/carbon:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: purple-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: purple-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 25000m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gray-carbon
+  namespace: gray
+  labels:
+    app: gray-carbon
+spec:
+  selector:
+    matchLabels:
+      app: gray-carbon
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: gray-carbon
+    spec:
+      containers:
+      - name: gray-carbon
+        image: ibmicpcoc/carbon:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: gray-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: gray-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 25000m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: beige-carbon
+  namespace: beige
+  labels:
+    app: beige-carbon
+spec:
+  selector:
+    matchLabels:
+      app: beige-carbon
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: beige-carbon
+    spec:
+      containers:
+      - name: beige-carbon
+        image: ibmicpcoc/carbon:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: beige-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: beige-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 25000m
+            memory: 100Mi            
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: black-carbon
+  namespace: black
+  labels:
+    app: black-carbon
+spec:
+  selector:
+    matchLabels:
+      app: black-carbon
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: black-carbon
+    spec:
+      containers:
+      - name: black-carbon
+        image: ibmicpcoc/carbon:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: black-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: black-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 25000m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aliceblue-carbon
+  namespace: aliceblue
+  labels:
+    app: aliceblue-carbon
+spec:
+  selector:
+    matchLabels:
+      app: aliceblue-carbon
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: aliceblue-carbon
+    spec:
+      containers:
+      - name: aliceblue-carbon
+        image: ibmicpcoc/carbon:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: aliceblue-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: aliceblue-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 25000m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: azure-carbon
+  namespace: azure
+  labels:
+    app: azure-carbon
+spec:
+  selector:
+    matchLabels:
+      app: azure-carbon
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: azure-carbon
+    spec:
+      containers:
+      - name: azure-carbon
+        image: ibmicpcoc/carbon:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: azure-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: azure-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 25000m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: burlywood-carbon
+  namespace: burlywood
+  labels:
+    app: burlywood-carbon
+spec:
+  selector:
+    matchLabels:
+      app: burlywood-carbon
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: burlywood-carbon
+    spec:
+      containers:
+      - name: burlywood-carbon
+        image: ibmicpcoc/carbon:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: burlywood-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: burlywood-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 25000m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cornsilk-carbon
+  namespace: cornsilk
+  labels:
+    app: cornsilk-carbon
+spec:
+  selector:
+    matchLabels:
+      app: cornsilk-carbon
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: cornsilk-carbon
+    spec:
+      containers:
+      - name: cornsilk-carbon
+        image: ibmicpcoc/carbon:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: cornsilk-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: cornsilk-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 25000m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: darkgray-carbon
+  namespace: darkgray
+  labels:
+    app: darkgray-carbon
+spec:
+  selector:
+    matchLabels:
+      app: darkgray-carbon
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: darkgray-carbon
+    spec:
+      containers:
+      - name: darkgray-carbon
+        image: ibmicpcoc/carbon:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkgray-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkgray-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 25000m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: darkred-carbon
+  namespace: darkred
+  labels:
+    app: darkred-carbon
+spec:
+  selector:
+    matchLabels:
+      app: darkred-carbon
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: darkred-carbon
+    spec:
+      containers:
+      - name: darkred-carbon
+        image: ibmicpcoc/carbon:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkred-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkred-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 25000m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deeppink-carbon
+  namespace: deeppink
+  labels:
+    app: deeppink-carbon
+spec:
+  selector:
+    matchLabels:
+      app: deeppink-carbon
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: deeppink-carbon
+    spec:
+      containers:
+      - name: deeppink-carbon
+        image: ibmicpcoc/carbon:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: deeppink-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: deeppink-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 25000m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: firebrick-carbon
+  namespace: firebrick
+  labels:
+    app: firebrick-carbon
+spec:
+  selector:
+    matchLabels:
+      app: firebrick-carbon
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: firebrick-carbon
+    spec:
+      containers:
+      - name: firebrick-carbon
+        image: ibmicpcoc/carbon:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: firebrick-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: firebrick-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 25000m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: indigo-carbon
+  namespace: indigo
+  labels:
+    app: indigo-carbon
+spec:
+  selector:
+    matchLabels:
+      app: indigo-carbon
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: indigo-carbon
+    spec:
+      containers:
+      - name: indigo-carbon
+        image: ibmicpcoc/carbon:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: indigo-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: indigo-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 25000m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lavender-carbon
+  namespace: lavender
+  labels:
+    app: lavender-carbon
+spec:
+  selector:
+    matchLabels:
+      app: lavender-carbon
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: lavender-carbon
+    spec:
+      containers:
+      - name: lavender-carbon
+        image: ibmicpcoc/carbon:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lavender-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lavender-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 25000m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mintcream-carbon
+  namespace: mintcream
+  labels:
+    app: mintcream-carbon
+spec:
+  selector:
+    matchLabels:
+      app: mintcream-carbon
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mintcream-carbon
+    spec:
+      containers:
+      - name: mintcream-carbon
+        image: ibmicpcoc/carbon:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: mintcream-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: mintcream-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 25000m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mistyrose-carbon
+  namespace: mistyrose
+  labels:
+    app: mistyrose-carbon
+spec:
+  selector:
+    matchLabels:
+      app: mistyrose-carbon
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mistyrose-carbon
+    spec:
+      containers:
+      - name: mistyrose-carbon
+        image: ibmicpcoc/carbon:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: mistyrose-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: mistyrose-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 25000m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orchid-carbon
+  namespace: orchid
+  labels:
+    app: orchid-carbon
+spec:
+  selector:
+    matchLabels:
+      app: orchid-carbon
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: orchid-carbon
+    spec:
+      containers:
+      - name: orchid-carbon
+        image: ibmicpcoc/carbon:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: orchid-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: orchid-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 25000m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: palegreen-carbon
+  namespace: palegreen
+  labels:
+    app: palegreen-carbon
+spec:
+  selector:
+    matchLabels:
+      app: palegreen-carbon
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: palegreen-carbon
+    spec:
+      containers:
+      - name: palegreen-carbon
+        image: ibmicpcoc/carbon:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: palegreen-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: palegreen-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 25000m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: steelblue-carbon
+  namespace: steelblue
+  labels:
+    app: steelblue-carbon
+spec:
+  selector:
+    matchLabels:
+      app: steelblue-carbon
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: steelblue-carbon
+    spec:
+      containers:
+      - name: steelblue-carbon
+        image: ibmicpcoc/carbon:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: steelblue-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: steelblue-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 25000m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tomato-carbon
+  namespace: tomato
+  labels:
+    app: tomato-carbon
+spec:
+  selector:
+    matchLabels:
+      app: tomato-carbon
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: tomato-carbon
+    spec:
+      containers:
+      - name: tomato-carbon
+        image: ibmicpcoc/carbon:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: tomato-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: tomato-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 25000m
+            memory: 100Mi
+---          

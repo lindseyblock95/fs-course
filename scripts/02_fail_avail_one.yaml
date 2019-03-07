@@ -1,0 +1,72 @@
+--- # Fast Start :: Problem Diagnosis and Troubleshooting Lab 
+--- # Create redis Deployment with incorrect RoleBinding for namespace
+---
+apiVersion: apps/v1    
+kind: Deployment
+metadata:
+  name: avail-all
+  namespace: avail
+  labels:
+    app: avail-all
+spec:
+  selector:
+    matchLabels:
+      app: avail-all
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: avail-all
+    spec:
+      containers:
+      - name: avail-all
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: avail-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: avail-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+--- # ---------------------------------------------
+--- # Deploy to another namespace (or)
+--- #
+--- # Add the role binding for the namespace as shown below
+--- # ---------------------------------------------
+--- #
+--- #  apiVersion: "rbac.authorization.k8s.io/v1"
+--- #  kind: RoleBinding
+--- #  metadata: 
+--- #   name: "ibm-privileged-clusterrole-rolebinding"
+--- #   namespace: redis
+--- #  roleRef: 
+--- #   apiGroup: "rbac.authorization.k8s.io"
+--- #   kind: ClusterRole
+--- #   name: "ibm-privileged-clusterrole"
+--- #  subjects: 
+--- #  - apiGroup: "rbac.authorization.k8s.io"
+--- #    kind: Group
+--- #    name: "system:serviceaccounts:redis"
+--- #
+--- #        command: ["/bin/bash", "-c"]
+--- #        args: ["/app/poster.sh"]
+--- #         command: ["/bin/bash", "-c", "/app/poster.sh"]
+---

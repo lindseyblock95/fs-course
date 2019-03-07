@@ -1,0 +1,1911 @@
+--- # Fast Start :: Problem Diagnosis and Troubleshooting Lab 
+--- # Deployment with wrong tag on name of image:
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pink-doors
+  namespace: pink
+  labels:
+    app: pink-doors
+spec:
+  selector:
+    matchLabels:
+      app: pink-doors
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: pink-doors
+    spec:
+      containers:
+      - name: pink-doors
+        image: ibmicpcoc/doors:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: pink-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: pink-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: olive-doors
+  namespace: olive
+  labels:
+    app: olive-doors
+spec:
+  selector:
+    matchLabels:
+      app: olive-doors
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: olive-doors
+    spec:
+      containers:
+      - name: olive-doors
+        image: ibmicpcoc/doors:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: olive-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: olive-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: salmon-doors
+  namespace: salmon
+  labels:
+    app: salmon-doors
+spec:
+  selector:
+    matchLabels:
+      app: salmon-doors
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: salmon-doors
+    spec:
+      containers:
+      - name: salmon-doors
+        image: ibmicpcoc/doors:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: salmon-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: salmon-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: red-doors
+  namespace: red
+  labels:
+    app: red-doors
+spec:
+  selector:
+    matchLabels:
+      app: red-doors
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: red-doors
+    spec:
+      containers:
+      - name: red-doors
+        image: ibmicpcoc/doors:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: red-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: red-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lime-doors
+  namespace: lime
+  labels:
+    app: lime-doors
+spec:
+  selector:
+    matchLabels:
+      app: lime-doors
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: lime-doors
+    spec:
+      containers:
+      - name: lime-doors
+        image: ibmicpcoc/doors:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lime-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lime-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: green-doors
+  namespace: green
+  labels:
+    app: green-doors
+spec:
+  selector:
+    matchLabels:
+      app: green-doors
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: green-doors
+    spec:
+      containers:
+      - name: green-doors
+        image: ibmicpcoc/doors:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: green-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: green-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: teal-doors
+  namespace: teal
+  labels:
+    app: teal-doors
+spec:
+  selector:
+    matchLabels:
+      app: teal-doors
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: teal-doors
+    spec:
+      containers:
+      - name: teal-fs-app01
+        image: ibmicpcoc/doors:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: teal-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: teal-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aqua-doors
+  namespace: aqua
+  labels:
+    app: aqua-doors
+spec:
+  selector:
+    matchLabels:
+      app: aqua-doors
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: aqua-doors
+    spec:
+      containers:
+      - name: aqua-doors
+        image: ibmicpcoc/doors:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: aqua-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: aqua-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gold-doors
+  namespace: gold
+  labels:
+    app: gold-doors
+spec:
+  selector:
+    matchLabels:
+      app: gold-doors
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: gold-doors
+    spec:
+      containers:
+      - name: gold-doors
+        image: ibmicpcoc/doors:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: gold-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: gold-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: khaki-doors
+  namespace: khaki
+  labels:
+    app: khaki-doors
+spec:
+  selector:
+    matchLabels:
+      app: khaki-doors
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: khaki-doors
+    spec:
+      containers:
+      - name: khaki-doors
+        image: ibmicpcoc/doors:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: khaki-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: khaki-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: yellow-doors
+  namespace: yellow
+  labels:
+    app: yellow-doors
+spec:
+  selector:
+    matchLabels:
+      app: yellow-doors
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: yellow-doors
+    spec:
+      containers:
+      - name: yellow-doors
+        image: ibmicpcoc/doors:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: yellow-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: yellow-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: coral-doors
+  namespace: coral
+  labels:
+    app: coral-doors
+spec:
+  selector:
+    matchLabels:
+      app: coral-doors
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: coral-doors
+    spec:
+      containers:
+      - name: coral-doors
+        image: ibmicpcoc/doors:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: coral-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: coral-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orange-doors
+  namespace: orange
+  labels:
+    app: orange-doors
+spec:
+  selector:
+    matchLabels:
+      app: orange-doors
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: orange-doors
+    spec:
+      containers:
+      - name: orange-doors
+        image: ibmicpcoc/doors:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: orange-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: orange-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: navy-doors
+  namespace: navy
+  labels:
+    app: navy-doors
+spec:
+  selector:
+    matchLabels:
+      app: navy-doors
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: navy-doors
+    spec:
+      containers:
+      - name: navy-doors
+        image: ibmicpcoc/doors:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: navy-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: navy-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blue-doors
+  namespace: blue
+  labels:
+    app: blue-doors
+spec:
+  selector:
+    matchLabels:
+      app: blue-doors
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: blue-doors
+    spec:
+      containers:
+      - name: blue-doors
+        image: ibmicpcoc/doors:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: blue-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: blue-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lightblue-doors
+  namespace: lightblue
+  labels:
+    app: lightblue-doors
+spec:
+  selector:
+    matchLabels:
+      app: lightblue-doors
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: lightblue-doors
+    spec:
+      containers:
+      - name: lightblue-doors
+        image: ibmicpcoc/doors:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lightblue-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lightblue-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: brown-doors
+  namespace: brown
+  labels:
+    app: brown-doors
+spec:
+  selector:
+    matchLabels:
+      app: brown-doors
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: brown-doors
+    spec:
+      containers:
+      - name: brown-doors
+        image: ibmicpcoc/doors:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: brown-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: brown-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: maroon-doors
+  namespace: maroon
+  labels:
+    app: maroon-doors
+spec:
+  selector:
+    matchLabels:
+      app: maroon-doors
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: maroon-doors
+    spec:
+      containers:
+      - name: maroon-doors
+        image: ibmicpcoc/doors:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: maroon-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: maroon-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tan-doors
+  namespace: tan
+  labels:
+    app: tan-doors
+spec:
+  selector:
+    matchLabels:
+      app: tan-doors
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: tan-doors
+    spec:
+      containers:
+      - name: tan-doors
+        image: ibmicpcoc/doors:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: tan-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: tan-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wheat-doors
+  namespace: wheat
+  labels:
+    app: wheat-doors
+spec:
+  selector:
+    matchLabels:
+      app: wheat-doors
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: wheat-doors
+    spec:
+      containers:
+      - name: wheat-doors
+        image: ibmicpcoc/doors:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: wheat-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: wheat-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: plum-doors
+  namespace: plum
+  labels:
+    app: plum-doors
+spec:
+  selector:
+    matchLabels:
+      app: plum-doors
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: plum-doors
+    spec:
+      containers:
+      - name: plum-doors
+        image: ibmicpcoc/doors:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: plum-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: plum-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: magenta-doors
+  namespace: magenta
+  labels:
+    app: magenta-doors
+spec:
+  selector:
+    matchLabels:
+      app: magenta-doors
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: magenta-doors
+    spec:
+      containers:
+      - name: magenta-doors
+        image: ibmicpcoc/doors:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: magenta-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: magenta-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: purple-doors
+  namespace: purple
+  labels:
+    app: purple-doors
+spec:
+  selector:
+    matchLabels:
+      app: purple-doors
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: purple-doors
+    spec:
+      containers:
+      - name: purple-doors
+        image: ibmicpcoc/doors:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: purple-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: purple-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gray-doors
+  namespace: gray
+  labels:
+    app: gray-doors
+spec:
+  selector:
+    matchLabels:
+      app: gray-doors
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: gray-doors
+    spec:
+      containers:
+      - name: gray-doors
+        image: ibmicpcoc/doors:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: gray-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: gray-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: beige-doors
+  namespace: beige
+  labels:
+    app: beige-doors
+spec:
+  selector:
+    matchLabels:
+      app: beige-doors
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: beige-doors
+    spec:
+      containers:
+      - name: beige-doors
+        image: ibmicpcoc/doors:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: beige-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: beige-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi            
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: black-doors
+  namespace: black
+  labels:
+    app: black-doors
+spec:
+  selector:
+    matchLabels:
+      app: black-doors
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: black-doors
+    spec:
+      containers:
+      - name: black-doors
+        image: ibmicpcoc/doors:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: black-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: black-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi 
+---
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aliceblue-doors
+  namespace: aliceblue
+  labels:
+    app: aliceblue-doors
+spec:
+  selector:
+    matchLabels:
+      app: aliceblue-doors
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: aliceblue-doors
+    spec:
+      containers:
+      - name: aliceblue-doors
+        image: ibmicpcoc/doors:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: aliceblue-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: aliceblue-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: azure-doors
+  namespace: azure
+  labels:
+    app: azure-doors
+spec:
+  selector:
+    matchLabels:
+      app: azure-doors
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: azure-doors
+    spec:
+      containers:
+      - name: azure-doors
+        image: ibmicpcoc/doors:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: azure-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: azure-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: burlywood-doors
+  namespace: burlywood
+  labels:
+    app: burlywood-doors
+spec:
+  selector:
+    matchLabels:
+      app: burlywood-doors
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: burlywood-doors
+    spec:
+      containers:
+      - name: burlywood-doors
+        image: ibmicpcoc/doors:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: burlywood-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: burlywood-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cornsilk-doors
+  namespace: cornsilk
+  labels:
+    app: cornsilk-doors
+spec:
+  selector:
+    matchLabels:
+      app: cornsilk-doors
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: cornsilk-doors
+    spec:
+      containers:
+      - name: cornsilk-doors
+        image: ibmicpcoc/doors:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: cornsilk-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: cornsilk-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: darkgray-doors
+  namespace: darkgray
+  labels:
+    app: darkgray-doors
+spec:
+  selector:
+    matchLabels:
+      app: darkgray-doors
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: darkgray-doors
+    spec:
+      containers:
+      - name: darkgray-doors
+        image: ibmicpcoc/doors:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkgray-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkgray-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: darkred-doors
+  namespace: darkred
+  labels:
+    app: darkred-doors
+spec:
+  selector:
+    matchLabels:
+      app: darkred-doors
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: darkred-doors
+    spec:
+      containers:
+      - name: darkred-doors
+        image: ibmicpcoc/doors:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkred-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkred-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deeppink-doors
+  namespace: deeppink
+  labels:
+    app: deeppink-doors
+spec:
+  selector:
+    matchLabels:
+      app: deeppink-doors
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: deeppink-doors
+    spec:
+      containers:
+      - name: deeppink-doors
+        image: ibmicpcoc/doors:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: deeppink-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: deeppink-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: firebrick-doors
+  namespace: firebrick
+  labels:
+    app: firebrick-doors
+spec:
+  selector:
+    matchLabels:
+      app: firebrick-doors
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: firebrick-doors
+    spec:
+      containers:
+      - name: firebrick-doors
+        image: ibmicpcoc/doors:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: firebrick-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: firebrick-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: indigo-doors
+  namespace: indigo
+  labels:
+    app: indigo-doors
+spec:
+  selector:
+    matchLabels:
+      app: indigo-doors
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: indigo-doors
+    spec:
+      containers:
+      - name: indigo-doors
+        image: ibmicpcoc/doors:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: indigo-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: indigo-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lavender-doors
+  namespace: lavender
+  labels:
+    app: lavender-doors
+spec:
+  selector:
+    matchLabels:
+      app: lavender-doors
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: lavender-doors
+    spec:
+      containers:
+      - name: lavender-doors
+        image: ibmicpcoc/doors:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lavender-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lavender-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mintcream-doors
+  namespace: mintcream
+  labels:
+    app: mintcream-doors
+spec:
+  selector:
+    matchLabels:
+      app: mintcream-doors
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mintcream-doors
+    spec:
+      containers:
+      - name: mintcream-doors
+        image: ibmicpcoc/doors:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: mintcream-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: mintcream-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mistyrose-doors
+  namespace: mistyrose
+  labels:
+    app: mistyrose-doors
+spec:
+  selector:
+    matchLabels:
+      app: mistyrose-doors
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mistyrose-doors
+    spec:
+      containers:
+      - name: mistyrose-doors
+        image: ibmicpcoc/doors:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: mistyrose-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: mistyrose-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orchid-doors
+  namespace: orchid
+  labels:
+    app: orchid-doors
+spec:
+  selector:
+    matchLabels:
+      app: orchid-doors
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: orchid-doors
+    spec:
+      containers:
+      - name: orchid-doors
+        image: ibmicpcoc/doors:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: orchid-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: orchid-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: palegreen-doors
+  namespace: palegreen
+  labels:
+    app: palegreen-doors
+spec:
+  selector:
+    matchLabels:
+      app: palegreen-doors
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: palegreen-doors
+    spec:
+      containers:
+      - name: palegreen-doors
+        image: ibmicpcoc/doors:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: palegreen-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: palegreen-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: steelblue-doors
+  namespace: steelblue
+  labels:
+    app: steelblue-doors
+spec:
+  selector:
+    matchLabels:
+      app: steelblue-doors
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: steelblue-doors
+    spec:
+      containers:
+      - name: steelblue-doors
+        image: ibmicpcoc/doors:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: steelblue-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: steelblue-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tomato-doors
+  namespace: tomato
+  labels:
+    app: tomato-doors
+spec:
+  selector:
+    matchLabels:
+      app: tomato-doors
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: tomato-doors
+    spec:
+      containers:
+      - name: tomato-doors
+        image: ibmicpcoc/doors:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: tomato-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: tomato-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+       

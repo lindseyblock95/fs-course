@@ -1,0 +1,2764 @@
+--- # Fast Start :: Problem Diagnosis and Troubleshooting Lab 
+--- # Deployment with corrected syntax, the - (single dash) on the name of containers:
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pink-eagle
+  namespace: pink
+  labels:
+    app: pink-eagle
+spec:
+  selector:
+    matchLabels:
+      app: pink-eagle
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: pink-eagle
+    spec:
+      containers:
+      - name: pink-eagle
+        image: ibmicpcoc/eagle:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 4100
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: pink-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: pink-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: olive-eagle
+  namespace: olive
+  labels:
+    app: olive-eagle
+spec:
+  selector:
+    matchLabels:
+      app: olive-eagle
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: olive-eagle
+    spec:
+      containers:
+      - name: olive-eagle
+        image: ibmicpcoc/eagle:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 4100
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: olive-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: olive-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: salmon-eagle
+  namespace: salmon
+  labels:
+    app: salmon-eagle
+spec:
+  selector:
+    matchLabels:
+      app: salmon-eagle
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: salmon-eagle
+    spec:
+      containers:
+      - name: salmon-eagle
+        image: ibmicpcoc/eagle:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 4100
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: salmon-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: salmon-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: red-eagle
+  namespace: red
+  labels:
+    app: red-eagle
+spec:
+  selector:
+    matchLabels:
+      app: red-eagle
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: red-eagle
+    spec:
+      containers:
+      - name: red-eagle
+        image: ibmicpcoc/eagle:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 4100
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: red-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: red-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lime-eagle
+  namespace: lime
+  labels:
+    app: lime-eagle
+spec:
+  selector:
+    matchLabels:
+      app: lime-eagle
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: lime-eagle
+    spec:
+      containers:
+      - name: lime-eagle
+        image: ibmicpcoc/eagle:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 4100
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lime-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lime-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: green-eagle
+  namespace: green
+  labels:
+    app: green-eagle
+spec:
+  selector:
+    matchLabels:
+      app: green-eagle
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: green-eagle
+    spec:
+      containers:
+      - name: green-eagle
+        image: ibmicpcoc/eagle:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 4100
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: green-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: green-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: teal-eagle
+  namespace: teal
+  labels:
+    app: teal-eagle
+spec:
+  selector:
+    matchLabels:
+      app: teal-eagle
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: teal-eagle
+    spec:
+      containers:
+      - name: teal-fs-app01
+        image: ibmicpcoc/eagle:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 4100
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: teal-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: teal-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aqua-eagle
+  namespace: aqua
+  labels:
+    app: aqua-eagle
+spec:
+  selector:
+    matchLabels:
+      app: aqua-eagle
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: aqua-eagle
+    spec:
+      containers:
+      - name: aqua-eagle
+        image: ibmicpcoc/eagle:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 4100
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: aqua-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: aqua-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gold-eagle
+  namespace: gold
+  labels:
+    app: gold-eagle
+spec:
+  selector:
+    matchLabels:
+      app: gold-eagle
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: gold-eagle
+    spec:
+      containers:
+      - name: gold-eagle
+        image: ibmicpcoc/eagle:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 4100
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: gold-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: gold-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: khaki-eagle
+  namespace: khaki
+  labels:
+    app: khaki-eagle
+spec:
+  selector:
+    matchLabels:
+      app: khaki-eagle
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: khaki-eagle
+    spec:
+      containers:
+      - name: khaki-eagle
+        image: ibmicpcoc/eagle:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 4100
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: khaki-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: khaki-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: yellow-eagle
+  namespace: yellow
+  labels:
+    app: yellow-eagle
+spec:
+  selector:
+    matchLabels:
+      app: yellow-eagle
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: yellow-eagle
+    spec:
+      containers:
+      - name: yellow-eagle
+        image: ibmicpcoc/eagle:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 4100
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: yellow-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: yellow-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: coral-eagle
+  namespace: coral
+  labels:
+    app: coral-eagle
+spec:
+  selector:
+    matchLabels:
+      app: coral-eagle
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: coral-eagle
+    spec:
+      containers:
+      - name: coral-eagle
+        image: ibmicpcoc/eagle:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 4100
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: coral-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: coral-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orange-eagle
+  namespace: orange
+  labels:
+    app: orange-eagle
+spec:
+  selector:
+    matchLabels:
+      app: orange-eagle
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: orange-eagle
+    spec:
+      containers:
+      - name: orange-eagle
+        image: ibmicpcoc/eagle:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 4100
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: orange-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: orange-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: navy-eagle
+  namespace: navy
+  labels:
+    app: navy-eagle
+spec:
+  selector:
+    matchLabels:
+      app: navy-eagle
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: navy-eagle
+    spec:
+      containers:
+      - name: navy-eagle
+        image: ibmicpcoc/eagle:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 4100
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: navy-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: navy-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blue-eagle
+  namespace: blue
+  labels:
+    app: blue-eagle
+spec:
+  selector:
+    matchLabels:
+      app: blue-eagle
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: blue-eagle
+    spec:
+      containers:
+      - name: blue-eagle
+        image: ibmicpcoc/eagle:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 4100
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: blue-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: blue-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lightblue-eagle
+  namespace: lightblue
+  labels:
+    app: lightblue-eagle
+spec:
+  selector:
+    matchLabels:
+      app: lightblue-eagle
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: lightblue-eagle
+    spec:
+      containers:
+      - name: lightblue-eagle
+        image: ibmicpcoc/eagle:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 4100
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lightblue-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lightblue-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: brown-eagle
+  namespace: brown
+  labels:
+    app: brown-eagle
+spec:
+  selector:
+    matchLabels:
+      app: brown-eagle
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: brown-eagle
+    spec:
+      containers:
+      - name: brown-eagle
+        image: ibmicpcoc/eagle:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 4100
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: brown-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: brown-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: maroon-eagle
+  namespace: maroon
+  labels:
+    app: maroon-eagle
+spec:
+  selector:
+    matchLabels:
+      app: maroon-eagle
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: maroon-eagle
+    spec:
+      containers:
+      - name: maroon-eagle
+        image: ibmicpcoc/eagle:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 4100
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: maroon-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: maroon-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tan-eagle
+  namespace: tan
+  labels:
+    app: tan-eagle
+spec:
+  selector:
+    matchLabels:
+      app: tan-eagle
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: tan-eagle
+    spec:
+      containers:
+      - name: tan-eagle
+        image: ibmicpcoc/eagle:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 4100
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: tan-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: tan-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wheat-eagle
+  namespace: wheat
+  labels:
+    app: wheat-eagle
+spec:
+  selector:
+    matchLabels:
+      app: wheat-eagle
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: wheat-eagle
+    spec:
+      containers:
+      - name: wheat-eagle
+        image: ibmicpcoc/eagle:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 4100
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: wheat-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: wheat-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: plum-eagle
+  namespace: plum
+  labels:
+    app: plum-eagle
+spec:
+  selector:
+    matchLabels:
+      app: plum-eagle
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: plum-eagle
+    spec:
+      containers:
+      - name: plum-eagle
+        image: ibmicpcoc/eagle:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 4100
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: plum-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: plum-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: magenta-eagle
+  namespace: magenta
+  labels:
+    app: magenta-eagle
+spec:
+  selector:
+    matchLabels:
+      app: magenta-eagle
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: magenta-eagle
+    spec:
+      containers:
+      - name: magenta-eagle
+        image: ibmicpcoc/eagle:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 4100
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: magenta-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: magenta-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: purple-eagle
+  namespace: purple
+  labels:
+    app: purple-eagle
+spec:
+  selector:
+    matchLabels:
+      app: purple-eagle
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: purple-eagle
+    spec:
+      containers:
+      - name: purple-eagle
+        image: ibmicpcoc/eagle:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 4100
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: purple-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: purple-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gray-eagle
+  namespace: gray
+  labels:
+    app: gray-eagle
+spec:
+  selector:
+    matchLabels:
+      app: gray-eagle
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: gray-eagle
+    spec:
+      containers:
+      - name: gray-eagle
+        image: ibmicpcoc/eagle:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 4100
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: gray-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: gray-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: beige-eagle
+  namespace: beige
+  labels:
+    app: beige-eagle
+spec:
+  selector:
+    matchLabels:
+      app: beige-eagle
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: beige-eagle
+    spec:
+      containers:
+      - name: beige-eagle
+        image: ibmicpcoc/eagle:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 4100
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: beige-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: beige-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi            
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: black-eagle
+  namespace: black
+  labels:
+    app: black-eagle
+spec:
+  selector:
+    matchLabels:
+      app: black-eagle
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: black-eagle
+    spec:
+      containers:
+      - name: black-eagle
+        image: ibmicpcoc/eagle:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 4100
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: black-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: black-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aliceblue-eagle
+  namespace: aliceblue
+  labels:
+    app: aliceblue-eagle
+spec:
+  selector:
+    matchLabels:
+      app: aliceblue-eagle
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: aliceblue-eagle
+    spec:
+      containers:
+      - name: aliceblue-eagle
+        image: ibmicpcoc/eagle:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: aliceblue-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: aliceblue-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: azure-eagle
+  namespace: azure
+  labels:
+    app: azure-eagle
+spec:
+  selector:
+    matchLabels:
+      app: azure-eagle
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: azure-eagle
+    spec:
+      containers:
+      - name: azure-eagle
+        image: ibmicpcoc/eagle:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: azure-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: azure-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: burlywood-eagle
+  namespace: burlywood
+  labels:
+    app: burlywood-eagle
+spec:
+  selector:
+    matchLabels:
+      app: burlywood-eagle
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: burlywood-eagle
+    spec:
+      containers:
+      - name: burlywood-eagle
+        image: ibmicpcoc/eagle:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: burlywood-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: burlywood-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cornsilk-eagle
+  namespace: cornsilk
+  labels:
+    app: cornsilk-eagle
+spec:
+  selector:
+    matchLabels:
+      app: cornsilk-eagle
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: cornsilk-eagle
+    spec:
+      containers:
+      - name: cornsilk-eagle
+        image: ibmicpcoc/eagle:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: cornsilk-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: cornsilk-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: darkgray-eagle
+  namespace: darkgray
+  labels:
+    app: darkgray-eagle
+spec:
+  selector:
+    matchLabels:
+      app: darkgray-eagle
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: darkgray-eagle
+    spec:
+      containers:
+      - name: darkgray-eagle
+        image: ibmicpcoc/eagle:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkgray-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkgray-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: darkred-eagle
+  namespace: darkred
+  labels:
+    app: darkred-eagle
+spec:
+  selector:
+    matchLabels:
+      app: darkred-eagle
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: darkred-eagle
+    spec:
+      containers:
+      - name: darkred-eagle
+        image: ibmicpcoc/eagle:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkred-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkred-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deeppink-eagle
+  namespace: deeppink
+  labels:
+    app: deeppink-eagle
+spec:
+  selector:
+    matchLabels:
+      app: deeppink-eagle
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: deeppink-eagle
+    spec:
+      containers:
+      - name: deeppink-eagle
+        image: ibmicpcoc/eagle:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: deeppink-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: deeppink-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: firebrick-eagle
+  namespace: firebrick
+  labels:
+    app: firebrick-eagle
+spec:
+  selector:
+    matchLabels:
+      app: firebrick-eagle
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: firebrick-eagle
+    spec:
+      containers:
+      - name: firebrick-eagle
+        image: ibmicpcoc/eagle:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: firebrick-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: firebrick-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: indigo-eagle
+  namespace: indigo
+  labels:
+    app: indigo-eagle
+spec:
+  selector:
+    matchLabels:
+      app: indigo-eagle
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: indigo-eagle
+    spec:
+      containers:
+      - name: indigo-eagle
+        image: ibmicpcoc/eagle:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: indigo-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: indigo-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lavender-eagle
+  namespace: lavender
+  labels:
+    app: lavender-eagle
+spec:
+  selector:
+    matchLabels:
+      app: lavender-eagle
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: lavender-eagle
+    spec:
+      containers:
+      - name: lavender-eagle
+        image: ibmicpcoc/eagle:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lavender-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lavender-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mintcream-eagle
+  namespace: mintcream
+  labels:
+    app: mintcream-eagle
+spec:
+  selector:
+    matchLabels:
+      app: mintcream-eagle
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mintcream-eagle
+    spec:
+      containers:
+      - name: mintcream-eagle
+        image: ibmicpcoc/eagle:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: mintcream-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: mintcream-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mistyrose-eagle
+  namespace: mistyrose
+  labels:
+    app: mistyrose-eagle
+spec:
+  selector:
+    matchLabels:
+      app: mistyrose-eagle
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mistyrose-eagle
+    spec:
+      containers:
+      - name: mistyrose-eagle
+        image: ibmicpcoc/eagle:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: mistyrose-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: mistyrose-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orchid-eagle
+  namespace: orchid
+  labels:
+    app: orchid-eagle
+spec:
+  selector:
+    matchLabels:
+      app: orchid-eagle
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: orchid-eagle
+    spec:
+      containers:
+      - name: orchid-eagle
+        image: ibmicpcoc/eagle:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: orchid-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: orchid-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: palegreen-eagle
+  namespace: palegreen
+  labels:
+    app: palegreen-eagle
+spec:
+  selector:
+    matchLabels:
+      app: palegreen-eagle
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: palegreen-eagle
+    spec:
+      containers:
+      - name: palegreen-eagle
+        image: ibmicpcoc/eagle:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: palegreen-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: palegreen-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: steelblue-eagle
+  namespace: steelblue
+  labels:
+    app: steelblue-eagle
+spec:
+  selector:
+    matchLabels:
+      app: steelblue-eagle
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: steelblue-eagle
+    spec:
+      containers:
+      - name: steelblue-eagle
+        image: ibmicpcoc/eagle:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: steelblue-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: steelblue-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tomato-eagle
+  namespace: tomato
+  labels:
+    app: tomato-eagle
+spec:
+  selector:
+    matchLabels:
+      app: tomato-eagle
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: tomato-eagle
+    spec:
+      containers:
+      - name: tomato-eagle
+        image: ibmicpcoc/eagle:latest
+        imagePullPolicy: Always
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: tomato-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: tomato-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+--- # Service defs
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: pink-eagle
+  namespace: pink
+  labels:
+    app: pink-eagle
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 4100
+      protocol: TCP
+      name: pink-eagle
+  selector:
+    app: pink-eagle
+---
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: olive-eagle
+  namespace: olive
+  labels:
+    app: olive-eagle
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 4100
+      protocol: TCP
+      name: olive-eagle
+  selector:
+    app: olive-eagle
+---
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: salmon-eagle
+  namespace: salmon
+  labels:
+    app: salmon-eagle
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 4100
+      protocol: TCP
+      name: salmon-eagle
+  selector:
+    app: salmon-eagle
+---
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: red-eagle
+  namespace: red
+  labels:
+    app: red-eagle
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 4100
+      protocol: TCP
+      name: red-eagle
+  selector:
+    app: red-eagle
+---
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: lime-eagle
+  namespace: lime
+  labels:
+    app: lime-eagle
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 4100
+      protocol: TCP
+      name: lime-eagle
+  selector:
+    app: lime-eagle
+---
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: green-eagle
+  namespace: green
+  labels:
+    app: green-eagle
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 4100
+      protocol: TCP
+      name: green-eagle
+  selector:
+    app: green-eagle
+---
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: teal-eagle
+  namespace: teal
+  labels:
+    app: teal-eagle
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 4100
+      protocol: TCP
+      name: teal-eagle
+  selector:
+    app: teal-eagle
+---
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: aqua-eagle
+  namespace: aqua
+  labels:
+    app: aqua-eagle
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 4100
+      protocol: TCP
+      name: aqua-eagle
+  selector:
+    app: aqua-eagle
+---
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gold-eagle
+  namespace: gold
+  labels:
+    app: gold-eagle
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 4100
+      protocol: TCP
+      name: gold-eagle
+  selector:
+    app: gold-eagle
+---
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: khaki-eagle
+  namespace: khaki
+  labels:
+    app: khaki-eagle
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 4100
+      protocol: TCP
+      name: khaki-eagle
+  selector:
+    app: khaki-eagle
+---
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: yellow-eagle
+  namespace: yellow
+  labels:
+    app: yellow-eagle
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 4100
+      protocol: TCP
+      name: yellow-eagle
+  selector:
+    app: yellow-eagle
+---
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: coral-eagle
+  namespace: coral
+  labels:
+    app: coral-eagle
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 4100
+      protocol: TCP
+      name: coral-eagle
+  selector:
+    app: coral-eagle
+---
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: orange-eagle
+  namespace: orange
+  labels:
+    app: orange-eagle
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 4100
+      protocol: TCP
+      name: orange-eagle
+  selector:
+    app: orange-eagle
+---
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: navy-eagle
+  namespace: navy
+  labels:
+    app: navy-eagle
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 4100
+      protocol: TCP
+      name: navy-eagle
+  selector:
+    app: navy-eagle
+---
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: blue-eagle
+  namespace: blue
+  labels:
+    app: blue-eagle
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 4100
+      protocol: TCP
+      name: blue-eagle
+  selector:
+    app: blue-eagle
+---
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: lightblue-eagle
+  namespace: lightblue
+  labels:
+    app: lightblue-eagle
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 4100
+      protocol: TCP
+      name: lightblue-eagle
+  selector:
+    app: lightblue-eagle
+---
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: brown-eagle
+  namespace: brown
+  labels:
+    app: brown-eagle
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 4100
+      protocol: TCP
+      name: brown-eagle
+  selector:
+    app: brown-eagle
+---
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: maroon-eagle
+  namespace: maroon
+  labels:
+    app: maroon-eagle
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 4100
+      protocol: TCP
+      name: maroon-eagle
+  selector:
+    app: maroon-eagle
+---
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tan-eagle
+  namespace: tan
+  labels:
+    app: tan-eagle
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 4100
+      protocol: TCP
+      name: tan-eagle
+  selector:
+    app: tan-eagle
+---
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: purple-eagle
+  namespace: purple
+  labels:
+    app: purple-eagle
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 4100
+      protocol: TCP
+      name: purple-eagle
+  selector:
+    app: purple-eagle
+---
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: wheat-eagle
+  namespace: wheat
+  labels:
+    app: wheat-eagle
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 4100
+      protocol: TCP
+      name: wheat-eagle
+  selector:
+    app: wheat-eagle
+---
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: plum-eagle
+  namespace: plum
+  labels:
+    app: plum-eagle
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 4100
+      protocol: TCP
+      name: plum-eagle
+  selector:
+    app: plum-eagle
+---
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: beige-eagle
+  namespace: beige
+  labels:
+    app: beige-eagle
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 4100
+      protocol: TCP
+      name: beige-eagle
+  selector:
+    app: beige-eagle
+---
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: magenta-eagle
+  namespace: magenta
+  labels:
+    app: magenta-eagle
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 4100
+      protocol: TCP
+      name: magenta-eagle
+  selector:
+    app: magenta-eagle
+---
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: gray-eagle
+  namespace: gray
+  labels:
+    app: gray-eagle
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 4100
+      protocol: TCP
+      name: gray-eagle
+  selector:
+    app: gray-eagle
+---
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: black-eagle
+  namespace: black
+  labels:
+    app: black-eagle
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 4100
+      protocol: TCP
+      name: black-eagle
+  selector:
+    app: black-eagle
+---
+---
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: aliceblue-eagle
+  namespace: aliceblue
+  labels:
+    app: aliceblue-eagle
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 4100
+      protocol: TCP
+      name: aliceblue-eagle
+  selector:
+    app: aliceblue-eagle
+---
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: azure-eagle
+  namespace: azure
+  labels:
+    app: azure-eagle
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 4100
+      protocol: TCP
+      name: azure-eagle
+  selector:
+    app: azure-eagle
+---
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: burlywood-eagle
+  namespace: burlywood
+  labels:
+    app: burlywood-eagle
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 4100
+      protocol: TCP
+      name: burlywood-eagle
+  selector:
+    app: burlywood-eagle
+---
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cornsilk-eagle
+  namespace: cornsilk
+  labels:
+    app: cornsilk-eagle
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 4100
+      protocol: TCP
+      name: cornsilk-eagle
+  selector:
+    app: cornsilk-eagle
+---
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: darkgray-eagle
+  namespace: darkgray
+  labels:
+    app: darkgray-eagle
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 4100
+      protocol: TCP
+      name: darkgray-eagle
+  selector:
+    app: darkgray-eagle
+---
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: darkred-eagle
+  namespace: darkred
+  labels:
+    app: darkred-eagle
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 4100
+      protocol: TCP
+      name: darkred-eagle
+  selector:
+    app: darkred-eagle
+---
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: deeppink-eagle
+  namespace: deeppink
+  labels:
+    app: deeppink-eagle
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 4100
+      protocol: TCP
+      name: deeppink-eagle
+  selector:
+    app: deeppink-eagle
+---
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: firebrick-eagle
+  namespace: firebrick
+  labels:
+    app: firebrick-eagle
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 4100
+      protocol: TCP
+      name: firebrick-eagle
+  selector:
+    app: firebrick-eagle
+---
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: indigo-eagle
+  namespace: indigo
+  labels:
+    app: indigo-eagle
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 4100
+      protocol: TCP
+      name: indigo-eagle
+  selector:
+    app: indigo-eagle
+---
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: lavender-eagle
+  namespace: lavender
+  labels:
+    app: lavender-eagle
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 4100
+      protocol: TCP
+      name: lavender-eagle
+  selector:
+    app: lavender-eagle
+---
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mintcream-eagle
+  namespace: mintcream
+  labels:
+    app: mintcream-eagle
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 4100
+      protocol: TCP
+      name: mintcream-eagle
+  selector:
+    app: mintcream-eagle
+---
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mistyrose-eagle
+  namespace: mistyrose
+  labels:
+    app: mistyrose-eagle
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 4100
+      protocol: TCP
+      name: mistyrose-eagle
+  selector:
+    app: mistyrose-eagle
+---
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: orchid-eagle
+  namespace: orchid
+  labels:
+    app: orchid-eagle
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 4100
+      protocol: TCP
+      name: orchid-eagle
+  selector:
+    app: orchid-eagle
+---
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: palegreen-eagle
+  namespace: palegreen
+  labels:
+    app: palegreen-eagle
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 4100
+      protocol: TCP
+      name: palegreen-eagle
+  selector:
+    app: palegreen-eagle
+---
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: steelblue-eagle
+  namespace: steelblue
+  labels:
+    app: steelblue-eagle
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 4100
+      protocol: TCP
+      name: steelblue-eagle
+  selector:
+    app: steelblue-eagle
+---
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tomato-eagle
+  namespace: tomato
+  labels:
+    app: tomato-eagle
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: 4100
+      protocol: TCP
+      name: tomato-eagle
+  selector:
+    app: tomato-eagle
+---
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+             

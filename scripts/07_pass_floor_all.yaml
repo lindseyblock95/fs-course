@@ -1,0 +1,1951 @@
+--- # Fast Start :: Problem Diagnosis and Troubleshooting Lab 
+--- # Deployment with corrected syntax, the - (single dash) on the name of containers:
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pink-floor
+  namespace: pink
+  labels:
+    app: pink-floor
+spec:
+  selector:
+    matchLabels:
+      app: pink-floor
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: pink-floor
+    spec:
+      containers:
+      - name: pink-floor
+        image: ibmicpcoc/floor:latest
+        imagePullPolicy: Always
+        command: ["node", "app.js"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: pink-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: pink-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: olive-floor
+  namespace: olive
+  labels:
+    app: olive-floor
+spec:
+  selector:
+    matchLabels:
+      app: olive-floor
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: olive-floor
+    spec:
+      containers:
+      - name: olive-floor
+        image: ibmicpcoc/floor:latest
+        imagePullPolicy: Always
+        command: ["node", "app.js"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: olive-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: olive-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: salmon-floor
+  namespace: salmon
+  labels:
+    app: salmon-floor
+spec:
+  selector:
+    matchLabels:
+      app: salmon-floor
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: salmon-floor
+    spec:
+      containers:
+      - name: salmon-floor
+        image: ibmicpcoc/floor:latest
+        imagePullPolicy: Always
+        command: ["node", "app.js"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: salmon-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: salmon-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: red-floor
+  namespace: red
+  labels:
+    app: red-floor
+spec:
+  selector:
+    matchLabels:
+      app: red-floor
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: red-floor
+    spec:
+      containers:
+      - name: red-floor
+        image: ibmicpcoc/floor:latest
+        imagePullPolicy: Always
+        command: ["node", "app.js"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: red-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: red-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lime-floor
+  namespace: lime
+  labels:
+    app: lime-floor
+spec:
+  selector:
+    matchLabels:
+      app: lime-floor
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: lime-floor
+    spec:
+      containers:
+      - name: lime-floor
+        image: ibmicpcoc/floor:latest
+        imagePullPolicy: Always
+        command: ["node", "app.js"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lime-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lime-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: green-floor
+  namespace: green
+  labels:
+    app: green-floor
+spec:
+  selector:
+    matchLabels:
+      app: green-floor
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: green-floor
+    spec:
+      containers:
+      - name: green-floor
+        image: ibmicpcoc/floor:latest
+        imagePullPolicy: Always
+        command: ["node", "app.js"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: green-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: green-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: teal-floor
+  namespace: teal
+  labels:
+    app: teal-floor
+spec:
+  selector:
+    matchLabels:
+      app: teal-floor
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: teal-floor
+    spec:
+      containers:
+      - name: teal-fs-app01
+        image: ibmicpcoc/floor:latest
+        imagePullPolicy: Always
+        command: ["node", "app.js"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: teal-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: teal-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aqua-floor
+  namespace: aqua
+  labels:
+    app: aqua-floor
+spec:
+  selector:
+    matchLabels:
+      app: aqua-floor
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: aqua-floor
+    spec:
+      containers:
+      - name: aqua-floor
+        image: ibmicpcoc/floor:latest
+        imagePullPolicy: Always
+        command: ["node", "app.js"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: aqua-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: aqua-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gold-floor
+  namespace: gold
+  labels:
+    app: gold-floor
+spec:
+  selector:
+    matchLabels:
+      app: gold-floor
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: gold-floor
+    spec:
+      containers:
+      - name: gold-floor
+        image: ibmicpcoc/floor:latest
+        imagePullPolicy: Always
+        command: ["node", "app.js"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: gold-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: gold-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: khaki-floor
+  namespace: khaki
+  labels:
+    app: khaki-floor
+spec:
+  selector:
+    matchLabels:
+      app: khaki-floor
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: khaki-floor
+    spec:
+      containers:
+      - name: khaki-floor
+        image: ibmicpcoc/floor:latest
+        imagePullPolicy: Always
+        command: ["node", "app.js"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: khaki-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: khaki-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: yellow-floor
+  namespace: yellow
+  labels:
+    app: yellow-floor
+spec:
+  selector:
+    matchLabels:
+      app: yellow-floor
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: yellow-floor
+    spec:
+      containers:
+      - name: yellow-floor
+        image: ibmicpcoc/floor:latest
+        imagePullPolicy: Always
+        command: ["node", "app.js"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: yellow-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: yellow-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: coral-floor
+  namespace: coral
+  labels:
+    app: coral-floor
+spec:
+  selector:
+    matchLabels:
+      app: coral-floor
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: coral-floor
+    spec:
+      containers:
+      - name: coral-floor
+        image: ibmicpcoc/floor:latest
+        imagePullPolicy: Always
+        command: ["node", "app.js"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: coral-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: coral-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orange-floor
+  namespace: orange
+  labels:
+    app: orange-floor
+spec:
+  selector:
+    matchLabels:
+      app: orange-floor
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: orange-floor
+    spec:
+      containers:
+      - name: orange-floor
+        image: ibmicpcoc/floor:latest
+        imagePullPolicy: Always
+        command: ["node", "app.js"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: orange-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: orange-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: navy-floor
+  namespace: navy
+  labels:
+    app: navy-floor
+spec:
+  selector:
+    matchLabels:
+      app: navy-floor
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: navy-floor
+    spec:
+      containers:
+      - name: navy-floor
+        image: ibmicpcoc/floor:latest
+        imagePullPolicy: Always
+        command: ["node", "app.js"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: navy-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: navy-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blue-floor
+  namespace: blue
+  labels:
+    app: blue-floor
+spec:
+  selector:
+    matchLabels:
+      app: blue-floor
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: blue-floor
+    spec:
+      containers:
+      - name: blue-floor
+        image: ibmicpcoc/floor:latest
+        imagePullPolicy: Always
+        command: ["node", "app.js"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: blue-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: blue-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lightblue-floor
+  namespace: lightblue
+  labels:
+    app: lightblue-floor
+spec:
+  selector:
+    matchLabels:
+      app: lightblue-floor
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: lightblue-floor
+    spec:
+      containers:
+      - name: lightblue-floor
+        image: ibmicpcoc/floor:latest
+        imagePullPolicy: Always
+        command: ["node", "app.js"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lightblue-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lightblue-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: brown-floor
+  namespace: brown
+  labels:
+    app: brown-floor
+spec:
+  selector:
+    matchLabels:
+      app: brown-floor
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: brown-floor
+    spec:
+      containers:
+      - name: brown-floor
+        image: ibmicpcoc/floor:latest
+        imagePullPolicy: Always
+        command: ["node", "app.js"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: brown-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: brown-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: maroon-floor
+  namespace: maroon
+  labels:
+    app: maroon-floor
+spec:
+  selector:
+    matchLabels:
+      app: maroon-floor
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: maroon-floor
+    spec:
+      containers:
+      - name: maroon-floor
+        image: ibmicpcoc/floor:latest
+        imagePullPolicy: Always
+        command: ["node", "app.js"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: maroon-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: maroon-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tan-floor
+  namespace: tan
+  labels:
+    app: tan-floor
+spec:
+  selector:
+    matchLabels:
+      app: tan-floor
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: tan-floor
+    spec:
+      containers:
+      - name: tan-floor
+        image: ibmicpcoc/floor:latest
+        imagePullPolicy: Always
+        command: ["node", "app.js"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: tan-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: tan-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wheat-floor
+  namespace: wheat
+  labels:
+    app: wheat-floor
+spec:
+  selector:
+    matchLabels:
+      app: wheat-floor
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: wheat-floor
+    spec:
+      containers:
+      - name: wheat-floor
+        image: ibmicpcoc/floor:latest
+        imagePullPolicy: Always
+        command: ["node", "app.js"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: wheat-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: wheat-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: plum-floor
+  namespace: plum
+  labels:
+    app: plum-floor
+spec:
+  selector:
+    matchLabels:
+      app: plum-floor
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: plum-floor
+    spec:
+      containers:
+      - name: plum-floor
+        image: ibmicpcoc/floor:latest
+        imagePullPolicy: Always
+        command: ["node", "app.js"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: plum-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: plum-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: magenta-floor
+  namespace: magenta
+  labels:
+    app: magenta-floor
+spec:
+  selector:
+    matchLabels:
+      app: magenta-floor
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: magenta-floor
+    spec:
+      containers:
+      - name: magenta-floor
+        image: ibmicpcoc/floor:latest
+        imagePullPolicy: Always
+        command: ["node", "app.js"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: magenta-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: magenta-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: purple-floor
+  namespace: purple
+  labels:
+    app: purple-floor
+spec:
+  selector:
+    matchLabels:
+      app: purple-floor
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: purple-floor
+    spec:
+      containers:
+      - name: purple-floor
+        image: ibmicpcoc/floor:latest
+        imagePullPolicy: Always
+        command: ["node", "app.js"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: purple-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: purple-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gray-floor
+  namespace: gray
+  labels:
+    app: gray-floor
+spec:
+  selector:
+    matchLabels:
+      app: gray-floor
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: gray-floor
+    spec:
+      containers:
+      - name: gray-floor
+        image: ibmicpcoc/floor:latest
+        imagePullPolicy: Always
+        command: ["node", "app.js"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: gray-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: gray-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: beige-floor
+  namespace: beige
+  labels:
+    app: beige-floor
+spec:
+  selector:
+    matchLabels:
+      app: beige-floor
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: beige-floor
+    spec:
+      containers:
+      - name: beige-floor
+        image: ibmicpcoc/floor:latest
+        imagePullPolicy: Always
+        command: ["node", "app.js"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: beige-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: beige-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi            
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: black-floor
+  namespace: black
+  labels:
+    app: black-floor
+spec:
+  selector:
+    matchLabels:
+      app: black-floor
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: black-floor
+    spec:
+      containers:
+      - name: black-floor
+        image: ibmicpcoc/floor:latest
+        imagePullPolicy: Always
+        command: ["node", "app.js"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: black-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: black-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi 
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aliceblue-floor
+  namespace: aliceblue
+  labels:
+    app: aliceblue-floor
+spec:
+  selector:
+    matchLabels:
+      app: aliceblue-floor
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: aliceblue-floor
+    spec:
+      containers:
+      - name: aliceblue-floor
+        image: ibmicpcoc/floor:latest
+        imagePullPolicy: Always
+        command: ["node", "app.js"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: aliceblue-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: aliceblue-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: azure-floor
+  namespace: azure
+  labels:
+    app: azure-floor
+spec:
+  selector:
+    matchLabels:
+      app: azure-floor
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: azure-floor
+    spec:
+      containers:
+      - name: azure-floor
+        image: ibmicpcoc/floor:latest
+        imagePullPolicy: Always
+        command: ["node", "app.js"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: azure-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: azure-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: burlywood-floor
+  namespace: burlywood
+  labels:
+    app: burlywood-floor
+spec:
+  selector:
+    matchLabels:
+      app: burlywood-floor
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: burlywood-floor
+    spec:
+      containers:
+      - name: burlywood-floor
+        image: ibmicpcoc/floor:latest
+        imagePullPolicy: Always
+        command: ["node", "app.js"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: burlywood-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: burlywood-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cornsilk-floor
+  namespace: cornsilk
+  labels:
+    app: cornsilk-floor
+spec:
+  selector:
+    matchLabels:
+      app: cornsilk-floor
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: cornsilk-floor
+    spec:
+      containers:
+      - name: cornsilk-floor
+        image: ibmicpcoc/floor:latest
+        imagePullPolicy: Always
+        command: ["node", "app.js"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: cornsilk-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: cornsilk-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: darkgray-floor
+  namespace: darkgray
+  labels:
+    app: darkgray-floor
+spec:
+  selector:
+    matchLabels:
+      app: darkgray-floor
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: darkgray-floor
+    spec:
+      containers:
+      - name: darkgray-floor
+        image: ibmicpcoc/floor:latest
+        imagePullPolicy: Always
+        command: ["node", "app.js"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkgray-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkgray-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: darkred-floor
+  namespace: darkred
+  labels:
+    app: darkred-floor
+spec:
+  selector:
+    matchLabels:
+      app: darkred-floor
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: darkred-floor
+    spec:
+      containers:
+      - name: darkred-floor
+        image: ibmicpcoc/floor:latest
+        imagePullPolicy: Always
+        command: ["node", "app.js"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkred-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: darkred-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: deeppink-floor
+  namespace: deeppink
+  labels:
+    app: deeppink-floor
+spec:
+  selector:
+    matchLabels:
+      app: deeppink-floor
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: deeppink-floor
+    spec:
+      containers:
+      - name: deeppink-floor
+        image: ibmicpcoc/floor:latest
+        imagePullPolicy: Always
+        command: ["node", "app.js"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: deeppink-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: deeppink-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: firebrick-floor
+  namespace: firebrick
+  labels:
+    app: firebrick-floor
+spec:
+  selector:
+    matchLabels:
+      app: firebrick-floor
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: firebrick-floor
+    spec:
+      containers:
+      - name: firebrick-floor
+        image: ibmicpcoc/floor:latest
+        imagePullPolicy: Always
+        command: ["node", "app.js"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: firebrick-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: firebrick-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: indigo-floor
+  namespace: indigo
+  labels:
+    app: indigo-floor
+spec:
+  selector:
+    matchLabels:
+      app: indigo-floor
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: indigo-floor
+    spec:
+      containers:
+      - name: indigo-floor
+        image: ibmicpcoc/floor:latest
+        imagePullPolicy: Always
+        command: ["node", "app.js"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: indigo-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: indigo-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lavender-floor
+  namespace: lavender
+  labels:
+    app: lavender-floor
+spec:
+  selector:
+    matchLabels:
+      app: lavender-floor
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: lavender-floor
+    spec:
+      containers:
+      - name: lavender-floor
+        image: ibmicpcoc/floor:latest
+        imagePullPolicy: Always
+        command: ["node", "app.js"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lavender-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: lavender-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mintcream-floor
+  namespace: mintcream
+  labels:
+    app: mintcream-floor
+spec:
+  selector:
+    matchLabels:
+      app: mintcream-floor
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mintcream-floor
+    spec:
+      containers:
+      - name: mintcream-floor
+        image: ibmicpcoc/floor:latest
+        imagePullPolicy: Always
+        command: ["node", "app.js"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: mintcream-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: mintcream-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mistyrose-floor
+  namespace: mistyrose
+  labels:
+    app: mistyrose-floor
+spec:
+  selector:
+    matchLabels:
+      app: mistyrose-floor
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: mistyrose-floor
+    spec:
+      containers:
+      - name: mistyrose-floor
+        image: ibmicpcoc/floor:latest
+        imagePullPolicy: Always
+        command: ["node", "app.js"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: mistyrose-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: mistyrose-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: orchid-floor
+  namespace: orchid
+  labels:
+    app: orchid-floor
+spec:
+  selector:
+    matchLabels:
+      app: orchid-floor
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: orchid-floor
+    spec:
+      containers:
+      - name: orchid-floor
+        image: ibmicpcoc/floor:latest
+        imagePullPolicy: Always
+        command: ["node", "app.js"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: orchid-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: orchid-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: palegreen-floor
+  namespace: palegreen
+  labels:
+    app: palegreen-floor
+spec:
+  selector:
+    matchLabels:
+      app: palegreen-floor
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: palegreen-floor
+    spec:
+      containers:
+      - name: palegreen-floor
+        image: ibmicpcoc/floor:latest
+        imagePullPolicy: Always
+        command: ["node", "app.js"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: palegreen-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: palegreen-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: steelblue-floor
+  namespace: steelblue
+  labels:
+    app: steelblue-floor
+spec:
+  selector:
+    matchLabels:
+      app: steelblue-floor
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: steelblue-floor
+    spec:
+      containers:
+      - name: steelblue-floor
+        image: ibmicpcoc/floor:latest
+        imagePullPolicy: Always
+        command: ["node", "app.js"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: steelblue-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: steelblue-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tomato-floor
+  namespace: tomato
+  labels:
+    app: tomato-floor
+spec:
+  selector:
+    matchLabels:
+      app: tomato-floor
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: tomato-floor
+    spec:
+      containers:
+      - name: tomato-floor
+        image: ibmicpcoc/floor:latest
+        imagePullPolicy: Always
+        command: ["node", "app.js"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: tomato-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: tomato-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+---       

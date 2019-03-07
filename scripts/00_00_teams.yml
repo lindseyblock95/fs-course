@@ -1,0 +1,1314 @@
+--- # Problem Diagnosis and Troubleshooting Lab 
+--- # Create all team namespaces, rolebindings, and configmaps.  
+--- # Note: avail namespace is the first entry and needed for one of the labs
+---
+---
+---  # Instructor collector config
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: default-instructor-ui-config
+  namespace: default
+data:
+  COLLECTOR_CONFIG: 'http://dashboard.default'
+---
+---  # Avail ---------------------------------
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: avail
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: avail-student-ui-config
+  namespace: avail
+data:
+  COLLECTOR_CONFIG: 'http://avail-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+---
+---  # Team configurations --------------------
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: yellow
+---
+apiVersion: "rbac.authorization.k8s.io/v1"
+kind: RoleBinding
+metadata: 
+ name: "ibm-privileged-clusterrole-rolebinding"
+ namespace: yellow
+roleRef: 
+ apiGroup: "rbac.authorization.k8s.io"
+ kind: ClusterRole
+ name: "ibm-privileged-clusterrole"
+subjects: 
+- apiGroup: "rbac.authorization.k8s.io"
+  kind: Group
+  name: "system:serviceaccounts:yellow"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: yellow-student-ui-config
+  namespace: yellow
+data:
+  COLLECTOR_CONFIG: 'http://yellow-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+---
+---  # Team ---------------------------------
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: red
+---
+apiVersion: "rbac.authorization.k8s.io/v1"
+kind: RoleBinding
+metadata: 
+ name: "ibm-privileged-clusterrole-rolebinding"
+ namespace: red
+roleRef: 
+ apiGroup: "rbac.authorization.k8s.io"
+ kind: ClusterRole
+ name: "ibm-privileged-clusterrole"
+subjects: 
+- apiGroup: "rbac.authorization.k8s.io"
+  kind: Group
+  name: "system:serviceaccounts:red"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: red-student-ui-config
+  namespace: red
+data:
+  COLLECTOR_CONFIG: 'http://red-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+---
+---  # Team ---------------------------------
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: blue
+---
+apiVersion: "rbac.authorization.k8s.io/v1"
+kind: RoleBinding
+metadata: 
+ name: "ibm-privileged-clusterrole-rolebinding"
+ namespace: blue
+roleRef: 
+ apiGroup: "rbac.authorization.k8s.io"
+ kind: ClusterRole
+ name: "ibm-privileged-clusterrole"
+subjects: 
+- apiGroup: "rbac.authorization.k8s.io"
+  kind: Group
+  name: "system:serviceaccounts:blue"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: blue-student-ui-config
+  namespace: blue
+data:
+  COLLECTOR_CONFIG: 'http://blue-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+---
+---  # Team ---------------------------------
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: pink
+---
+apiVersion: "rbac.authorization.k8s.io/v1"
+kind: RoleBinding
+metadata: 
+ name: "ibm-privileged-clusterrole-rolebinding"
+ namespace: pink
+roleRef: 
+ apiGroup: "rbac.authorization.k8s.io"
+ kind: ClusterRole
+ name: "ibm-privileged-clusterrole"
+subjects: 
+- apiGroup: "rbac.authorization.k8s.io"
+  kind: Group
+  name: "system:serviceaccounts:pink"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: pink-student-ui-config
+  namespace: pink
+data:
+  COLLECTOR_CONFIG: 'http://pink-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+---
+---  # Team ---------------------------------
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: olive
+---
+apiVersion: "rbac.authorization.k8s.io/v1"
+kind: RoleBinding
+metadata: 
+ name: "ibm-privileged-clusterrole-rolebinding"
+ namespace: olive
+roleRef: 
+ apiGroup: "rbac.authorization.k8s.io"
+ kind: ClusterRole
+ name: "ibm-privileged-clusterrole"
+subjects: 
+- apiGroup: "rbac.authorization.k8s.io"
+  kind: Group
+  name: "system:serviceaccounts:olive"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: olive-student-ui-config
+  namespace: olive
+data:
+  COLLECTOR_CONFIG: 'http://olive-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+---
+---  # Team ---------------------------------
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: salmon
+---
+apiVersion: "rbac.authorization.k8s.io/v1"
+kind: RoleBinding
+metadata: 
+ name: "ibm-privileged-clusterrole-rolebinding"
+ namespace: salmon
+roleRef: 
+ apiGroup: "rbac.authorization.k8s.io"
+ kind: ClusterRole
+ name: "ibm-privileged-clusterrole"
+subjects: 
+- apiGroup: "rbac.authorization.k8s.io"
+  kind: Group
+  name: "system:serviceaccounts:salmon"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: salmon-student-ui-config
+  namespace: salmon
+data:
+  COLLECTOR_CONFIG: 'http://salmon-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+---
+---  # Team ---------------------------------
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: lime
+---
+apiVersion: "rbac.authorization.k8s.io/v1"
+kind: RoleBinding
+metadata: 
+ name: "ibm-privileged-clusterrole-rolebinding"
+ namespace: lime
+roleRef: 
+ apiGroup: "rbac.authorization.k8s.io"
+ kind: ClusterRole
+ name: "ibm-privileged-clusterrole"
+subjects: 
+- apiGroup: "rbac.authorization.k8s.io"
+  kind: Group
+  name: "system:serviceaccounts:lime"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: lime-student-ui-config
+  namespace: lime
+data:
+  COLLECTOR_CONFIG: 'http://lime-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+---
+---  # Team ---------------------------------
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: green
+---
+apiVersion: "rbac.authorization.k8s.io/v1"
+kind: RoleBinding
+metadata: 
+ name: "ibm-privileged-clusterrole-rolebinding"
+ namespace: green
+roleRef: 
+ apiGroup: "rbac.authorization.k8s.io"
+ kind: ClusterRole
+ name: "ibm-privileged-clusterrole"
+subjects: 
+- apiGroup: "rbac.authorization.k8s.io"
+  kind: Group
+  name: "system:serviceaccounts:green"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: green-student-ui-config
+  namespace: green
+data:
+  COLLECTOR_CONFIG: 'http://green-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+---
+---  # Team ---------------------------------
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: teal
+---
+apiVersion: "rbac.authorization.k8s.io/v1"
+kind: RoleBinding
+metadata: 
+ name: "ibm-privileged-clusterrole-rolebinding"
+ namespace: teal
+roleRef: 
+ apiGroup: "rbac.authorization.k8s.io"
+ kind: ClusterRole
+ name: "ibm-privileged-clusterrole"
+subjects: 
+- apiGroup: "rbac.authorization.k8s.io"
+  kind: Group
+  name: "system:serviceaccounts:teal"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: teal-student-ui-config
+  namespace: teal
+data:
+  COLLECTOR_CONFIG: 'http://teal-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+---
+---  # Team ---------------------------------
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: aqua
+---
+apiVersion: "rbac.authorization.k8s.io/v1"
+kind: RoleBinding
+metadata: 
+ name: "ibm-privileged-clusterrole-rolebinding"
+ namespace: aqua
+roleRef: 
+ apiGroup: "rbac.authorization.k8s.io"
+ kind: ClusterRole
+ name: "ibm-privileged-clusterrole"
+subjects: 
+- apiGroup: "rbac.authorization.k8s.io"
+  kind: Group
+  name: "system:serviceaccounts:aqua"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: aqua-student-ui-config
+  namespace: aqua
+data:
+  COLLECTOR_CONFIG: 'http://aqua-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+---
+---  # Team ---------------------------------
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: gold
+---
+apiVersion: "rbac.authorization.k8s.io/v1"
+kind: RoleBinding
+metadata: 
+ name: "ibm-privileged-clusterrole-rolebinding"
+ namespace: gold
+roleRef: 
+ apiGroup: "rbac.authorization.k8s.io"
+ kind: ClusterRole
+ name: "ibm-privileged-clusterrole"
+subjects: 
+- apiGroup: "rbac.authorization.k8s.io"
+  kind: Group
+  name: "system:serviceaccounts:gold"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: gold-student-ui-config
+  namespace: gold
+data:
+  COLLECTOR_CONFIG: 'http://gold-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+---
+---  # Team ---------------------------------
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: khaki
+---
+apiVersion: "rbac.authorization.k8s.io/v1"
+kind: RoleBinding
+metadata: 
+ name: "ibm-privileged-clusterrole-rolebinding"
+ namespace: khaki
+roleRef: 
+ apiGroup: "rbac.authorization.k8s.io"
+ kind: ClusterRole
+ name: "ibm-privileged-clusterrole"
+subjects: 
+- apiGroup: "rbac.authorization.k8s.io"
+  kind: Group
+  name: "system:serviceaccounts:khaki"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: khaki-student-ui-config
+  namespace: khaki
+data:
+  COLLECTOR_CONFIG: 'http://khaki-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+---
+---  # Team ---------------------------------
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: coral
+---
+apiVersion: "rbac.authorization.k8s.io/v1"
+kind: RoleBinding
+metadata: 
+ name: "ibm-privileged-clusterrole-rolebinding"
+ namespace: coral
+roleRef: 
+ apiGroup: "rbac.authorization.k8s.io"
+ kind: ClusterRole
+ name: "ibm-privileged-clusterrole"
+subjects: 
+- apiGroup: "rbac.authorization.k8s.io"
+  kind: Group
+  name: "system:serviceaccounts:coral"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: coral-student-ui-config
+  namespace: coral
+data:
+  COLLECTOR_CONFIG: 'http://coral-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+---
+---  # Team ---------------------------------
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: orange
+---
+apiVersion: "rbac.authorization.k8s.io/v1"
+kind: RoleBinding
+metadata: 
+ name: "ibm-privileged-clusterrole-rolebinding"
+ namespace: orange
+roleRef: 
+ apiGroup: "rbac.authorization.k8s.io"
+ kind: ClusterRole
+ name: "ibm-privileged-clusterrole"
+subjects: 
+- apiGroup: "rbac.authorization.k8s.io"
+  kind: Group
+  name: "system:serviceaccounts:orange"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: orange-student-ui-config
+  namespace: orange
+data:
+  COLLECTOR_CONFIG: 'http://orange-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+---
+---  # Team ---------------------------------
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: navy
+---
+apiVersion: "rbac.authorization.k8s.io/v1"
+kind: RoleBinding
+metadata: 
+ name: "ibm-privileged-clusterrole-rolebinding"
+ namespace: navy
+roleRef: 
+ apiGroup: "rbac.authorization.k8s.io"
+ kind: ClusterRole
+ name: "ibm-privileged-clusterrole"
+subjects: 
+- apiGroup: "rbac.authorization.k8s.io"
+  kind: Group
+  name: "system:serviceaccounts:navy"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: navy-student-ui-config
+  namespace: navy
+data:
+  COLLECTOR_CONFIG: 'http://navy-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+---
+---  # Team ---------------------------------
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: lightblue
+---
+apiVersion: "rbac.authorization.k8s.io/v1"
+kind: RoleBinding
+metadata: 
+ name: "ibm-privileged-clusterrole-rolebinding"
+ namespace: lightblue
+roleRef: 
+ apiGroup: "rbac.authorization.k8s.io"
+ kind: ClusterRole
+ name: "ibm-privileged-clusterrole"
+subjects: 
+- apiGroup: "rbac.authorization.k8s.io"
+  kind: Group
+  name: "system:serviceaccounts:lightblue"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: lightblue-student-ui-config
+  namespace: lightblue
+data:
+  COLLECTOR_CONFIG: 'http://lightblue-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+---
+---  # Team ---------------------------------
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: brown
+---
+apiVersion: "rbac.authorization.k8s.io/v1"
+kind: RoleBinding
+metadata: 
+ name: "ibm-privileged-clusterrole-rolebinding"
+ namespace: brown
+roleRef: 
+ apiGroup: "rbac.authorization.k8s.io"
+ kind: ClusterRole
+ name: "ibm-privileged-clusterrole"
+subjects: 
+- apiGroup: "rbac.authorization.k8s.io"
+  kind: Group
+  name: "system:serviceaccounts:brown"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: brown-student-ui-config
+  namespace: brown
+data:
+  COLLECTOR_CONFIG: 'http://brown-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+---
+---  # Team ---------------------------------
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: maroon
+---
+apiVersion: "rbac.authorization.k8s.io/v1"
+kind: RoleBinding
+metadata: 
+ name: "ibm-privileged-clusterrole-rolebinding"
+ namespace: maroon
+roleRef: 
+ apiGroup: "rbac.authorization.k8s.io"
+ kind: ClusterRole
+ name: "ibm-privileged-clusterrole"
+subjects: 
+- apiGroup: "rbac.authorization.k8s.io"
+  kind: Group
+  name: "system:serviceaccounts:maroon"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: maroon-student-ui-config
+  namespace: maroon
+data:
+  COLLECTOR_CONFIG: 'http://maroon-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+---
+---  # Team ---------------------------------
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: tan
+---
+apiVersion: "rbac.authorization.k8s.io/v1"
+kind: RoleBinding
+metadata: 
+ name: "ibm-privileged-clusterrole-rolebinding"
+ namespace: tan
+roleRef: 
+ apiGroup: "rbac.authorization.k8s.io"
+ kind: ClusterRole
+ name: "ibm-privileged-clusterrole"
+subjects: 
+- apiGroup: "rbac.authorization.k8s.io"
+  kind: Group
+  name: "system:serviceaccounts:tan"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: tan-student-ui-config
+  namespace: tan
+data:
+  COLLECTOR_CONFIG: 'http://tan-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+---
+---  # Team ---------------------------------
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: wheat
+---
+apiVersion: "rbac.authorization.k8s.io/v1"
+kind: RoleBinding
+metadata: 
+ name: "ibm-privileged-clusterrole-rolebinding"
+ namespace: wheat
+roleRef: 
+ apiGroup: "rbac.authorization.k8s.io"
+ kind: ClusterRole
+ name: "ibm-privileged-clusterrole"
+subjects: 
+- apiGroup: "rbac.authorization.k8s.io"
+  kind: Group
+  name: "system:serviceaccounts:wheat"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: wheat-student-ui-config
+  namespace: wheat
+data:
+  COLLECTOR_CONFIG: 'http://wheat-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+---
+---  # Team ---------------------------------
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: plum
+---
+apiVersion: "rbac.authorization.k8s.io/v1"
+kind: RoleBinding
+metadata: 
+ name: "ibm-privileged-clusterrole-rolebinding"
+ namespace: plum
+roleRef: 
+ apiGroup: "rbac.authorization.k8s.io"
+ kind: ClusterRole
+ name: "ibm-privileged-clusterrole"
+subjects: 
+- apiGroup: "rbac.authorization.k8s.io"
+  kind: Group
+  name: "system:serviceaccounts:plum"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: plum-student-ui-config
+  namespace: plum
+data:
+  COLLECTOR_CONFIG: 'http://plum-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+---
+---  # Team ---------------------------------
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: magenta
+---
+apiVersion: "rbac.authorization.k8s.io/v1"
+kind: RoleBinding
+metadata: 
+ name: "ibm-privileged-clusterrole-rolebinding"
+ namespace: magenta
+roleRef: 
+ apiGroup: "rbac.authorization.k8s.io"
+ kind: ClusterRole
+ name: "ibm-privileged-clusterrole"
+subjects: 
+- apiGroup: "rbac.authorization.k8s.io"
+  kind: Group
+  name: "system:serviceaccounts:magenta"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: magenta-student-ui-config
+  namespace: magenta
+data:
+  COLLECTOR_CONFIG: 'http://magenta-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+---
+---  # Team ---------------------------------
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: purple
+---
+apiVersion: "rbac.authorization.k8s.io/v1"
+kind: RoleBinding
+metadata: 
+ name: "ibm-privileged-clusterrole-rolebinding"
+ namespace: purple
+roleRef: 
+ apiGroup: "rbac.authorization.k8s.io"
+ kind: ClusterRole
+ name: "ibm-privileged-clusterrole"
+subjects: 
+- apiGroup: "rbac.authorization.k8s.io"
+  kind: Group
+  name: "system:serviceaccounts:purple"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: purple-student-ui-config
+  namespace: purple
+data:
+  COLLECTOR_CONFIG: 'http://purple-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+---
+---  # Team ---------------------------------
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: gray
+---
+apiVersion: "rbac.authorization.k8s.io/v1"
+kind: RoleBinding
+metadata: 
+ name: "ibm-privileged-clusterrole-rolebinding"
+ namespace: gray
+roleRef: 
+ apiGroup: "rbac.authorization.k8s.io"
+ kind: ClusterRole
+ name: "ibm-privileged-clusterrole"
+subjects: 
+- apiGroup: "rbac.authorization.k8s.io"
+  kind: Group
+  name: "system:serviceaccounts:gray"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: gray-student-ui-config
+  namespace: gray
+data:
+  COLLECTOR_CONFIG: 'http://gray-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+---
+---  # Team ---------------------------------
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: beige
+---
+apiVersion: "rbac.authorization.k8s.io/v1"
+kind: RoleBinding
+metadata: 
+ name: "ibm-privileged-clusterrole-rolebinding"
+ namespace: beige
+roleRef: 
+ apiGroup: "rbac.authorization.k8s.io"
+ kind: ClusterRole
+ name: "ibm-privileged-clusterrole"
+subjects: 
+- apiGroup: "rbac.authorization.k8s.io"
+  kind: Group
+  name: "system:serviceaccounts:beige"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: beige-student-ui-config
+  namespace: beige
+data:
+  COLLECTOR_CONFIG: 'http://beige-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+---
+---  # Team ---------------------------------
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: black
+---
+apiVersion: "rbac.authorization.k8s.io/v1"
+kind: RoleBinding
+metadata: 
+ name: "ibm-privileged-clusterrole-rolebinding"
+ namespace: black
+roleRef: 
+ apiGroup: "rbac.authorization.k8s.io"
+ kind: ClusterRole
+ name: "ibm-privileged-clusterrole"
+subjects: 
+- apiGroup: "rbac.authorization.k8s.io"
+  kind: Group
+  name: "system:serviceaccounts:black"  
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: black-student-ui-config
+  namespace: black
+data:
+  COLLECTOR_CONFIG: 'http://black-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+---
+---  # Team ---------------------------------
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: aliceblue
+---
+apiVersion: "rbac.authorization.k8s.io/v1"
+kind: RoleBinding
+metadata: 
+ name: "ibm-privileged-clusterrole-rolebinding"
+ namespace: aliceblue
+roleRef: 
+ apiGroup: "rbac.authorization.k8s.io"
+ kind: ClusterRole
+ name: "ibm-privileged-clusterrole"
+subjects: 
+- apiGroup: "rbac.authorization.k8s.io"
+  kind: Group
+  name: "system:serviceaccounts:aliceblue"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: aliceblue-student-ui-config
+  namespace: aliceblue
+data:
+  COLLECTOR_CONFIG: 'http://aliceblue-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+---
+---  # Team ---------------------------------
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: azure
+---
+apiVersion: "rbac.authorization.k8s.io/v1"
+kind: RoleBinding
+metadata: 
+ name: "ibm-privileged-clusterrole-rolebinding"
+ namespace: azure
+roleRef: 
+ apiGroup: "rbac.authorization.k8s.io"
+ kind: ClusterRole
+ name: "ibm-privileged-clusterrole"
+subjects: 
+- apiGroup: "rbac.authorization.k8s.io"
+  kind: Group
+  name: "system:serviceaccounts:azure"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: azure-student-ui-config
+  namespace: azure
+data:
+  COLLECTOR_CONFIG: 'http://azure-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+---
+---  # Team ---------------------------------
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: burlywood
+---
+apiVersion: "rbac.authorization.k8s.io/v1"
+kind: RoleBinding
+metadata: 
+ name: "ibm-privileged-clusterrole-rolebinding"
+ namespace: burlywood
+roleRef: 
+ apiGroup: "rbac.authorization.k8s.io"
+ kind: ClusterRole
+ name: "ibm-privileged-clusterrole"
+subjects: 
+- apiGroup: "rbac.authorization.k8s.io"
+  kind: Group
+  name: "system:serviceaccounts:burlywood"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: burlywood-student-ui-config
+  namespace: burlywood
+data:
+  COLLECTOR_CONFIG: 'http://burlywood-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'
+---
+---  # Team ---------------------------------
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: cornsilk
+---
+apiVersion: "rbac.authorization.k8s.io/v1"
+kind: RoleBinding
+metadata: 
+ name: "ibm-privileged-clusterrole-rolebinding"
+ namespace: cornsilk
+roleRef: 
+ apiGroup: "rbac.authorization.k8s.io"
+ kind: ClusterRole
+ name: "ibm-privileged-clusterrole"
+subjects: 
+- apiGroup: "rbac.authorization.k8s.io"
+  kind: Group
+  name: "system:serviceaccounts:cornsilk"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cornsilk-student-ui-config
+  namespace: cornsilk
+data:
+  COLLECTOR_CONFIG: 'http://cornsilk-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'    
+---
+---  # Team ---------------------------------
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: darkgray
+---
+apiVersion: "rbac.authorization.k8s.io/v1"
+kind: RoleBinding
+metadata: 
+ name: "ibm-privileged-clusterrole-rolebinding"
+ namespace: darkgray
+roleRef: 
+ apiGroup: "rbac.authorization.k8s.io"
+ kind: ClusterRole
+ name: "ibm-privileged-clusterrole"
+subjects: 
+- apiGroup: "rbac.authorization.k8s.io"
+  kind: Group
+  name: "system:serviceaccounts:darkgray"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: darkgray-student-ui-config
+  namespace: darkgray
+data:
+  COLLECTOR_CONFIG: 'http://darkgray-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default' 
+---
+---  # Team ---------------------------------
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: darkred
+---
+apiVersion: "rbac.authorization.k8s.io/v1"
+kind: RoleBinding
+metadata: 
+ name: "ibm-privileged-clusterrole-rolebinding"
+ namespace: darkred
+roleRef: 
+ apiGroup: "rbac.authorization.k8s.io"
+ kind: ClusterRole
+ name: "ibm-privileged-clusterrole"
+subjects: 
+- apiGroup: "rbac.authorization.k8s.io"
+  kind: Group
+  name: "system:serviceaccounts:darkred"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: darkred-student-ui-config
+  namespace: darkred
+data:
+  COLLECTOR_CONFIG: 'http://darkred-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'  
+---
+---  # Team ---------------------------------
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: deeppink
+---
+apiVersion: "rbac.authorization.k8s.io/v1"
+kind: RoleBinding
+metadata: 
+ name: "ibm-privileged-clusterrole-rolebinding"
+ namespace: deeppink
+roleRef: 
+ apiGroup: "rbac.authorization.k8s.io"
+ kind: ClusterRole
+ name: "ibm-privileged-clusterrole"
+subjects: 
+- apiGroup: "rbac.authorization.k8s.io"
+  kind: Group
+  name: "system:serviceaccounts:deeppink"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: deeppink-student-ui-config
+  namespace: deeppink
+data:
+  COLLECTOR_CONFIG: 'http://deeppink-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default' 
+---
+---  # Team ---------------------------------
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: firebrick
+---
+apiVersion: "rbac.authorization.k8s.io/v1"
+kind: RoleBinding
+metadata: 
+ name: "ibm-privileged-clusterrole-rolebinding"
+ namespace: firebrick
+roleRef: 
+ apiGroup: "rbac.authorization.k8s.io"
+ kind: ClusterRole
+ name: "ibm-privileged-clusterrole"
+subjects: 
+- apiGroup: "rbac.authorization.k8s.io"
+  kind: Group
+  name: "system:serviceaccounts:firebrick"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: firebrick-student-ui-config
+  namespace: firebrick
+data:
+  COLLECTOR_CONFIG: 'http://firebrick-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'   
+---
+---  # Team ---------------------------------
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: indigo
+---
+apiVersion: "rbac.authorization.k8s.io/v1"
+kind: RoleBinding
+metadata: 
+ name: "ibm-privileged-clusterrole-rolebinding"
+ namespace: indigo
+roleRef: 
+ apiGroup: "rbac.authorization.k8s.io"
+ kind: ClusterRole
+ name: "ibm-privileged-clusterrole"
+subjects: 
+- apiGroup: "rbac.authorization.k8s.io"
+  kind: Group
+  name: "system:serviceaccounts:indigo"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: indigo-student-ui-config
+  namespace: indigo
+data:
+  COLLECTOR_CONFIG: 'http://indigo-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'  
+---
+---  # Team ---------------------------------
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: lavender
+---
+apiVersion: "rbac.authorization.k8s.io/v1"
+kind: RoleBinding
+metadata: 
+ name: "ibm-privileged-clusterrole-rolebinding"
+ namespace: lavender
+roleRef: 
+ apiGroup: "rbac.authorization.k8s.io"
+ kind: ClusterRole
+ name: "ibm-privileged-clusterrole"
+subjects: 
+- apiGroup: "rbac.authorization.k8s.io"
+  kind: Group
+  name: "system:serviceaccounts:lavender"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: lavender-student-ui-config
+  namespace: lavender
+data:
+  COLLECTOR_CONFIG: 'http://lavender-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'  
+---
+---  # Team ---------------------------------
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: mintcream
+---
+apiVersion: "rbac.authorization.k8s.io/v1"
+kind: RoleBinding
+metadata: 
+ name: "ibm-privileged-clusterrole-rolebinding"
+ namespace: mintcream
+roleRef: 
+ apiGroup: "rbac.authorization.k8s.io"
+ kind: ClusterRole
+ name: "ibm-privileged-clusterrole"
+subjects: 
+- apiGroup: "rbac.authorization.k8s.io"
+  kind: Group
+  name: "system:serviceaccounts:mintcream"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mintcream-student-ui-config
+  namespace: mintcream
+data:
+  COLLECTOR_CONFIG: 'http://mintcream-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'  
+---
+---  # Team ---------------------------------
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: mistyrose
+---
+apiVersion: "rbac.authorization.k8s.io/v1"
+kind: RoleBinding
+metadata: 
+ name: "ibm-privileged-clusterrole-rolebinding"
+ namespace: mistyrose
+roleRef: 
+ apiGroup: "rbac.authorization.k8s.io"
+ kind: ClusterRole
+ name: "ibm-privileged-clusterrole"
+subjects: 
+- apiGroup: "rbac.authorization.k8s.io"
+  kind: Group
+  name: "system:serviceaccounts:mistyrose"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mistyrose-student-ui-config
+  namespace: mistyrose
+data:
+  COLLECTOR_CONFIG: 'http://mistyrose-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default' 
+---
+---  # Team ---------------------------------
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: orchid
+---
+apiVersion: "rbac.authorization.k8s.io/v1"
+kind: RoleBinding
+metadata: 
+ name: "ibm-privileged-clusterrole-rolebinding"
+ namespace: orchid
+roleRef: 
+ apiGroup: "rbac.authorization.k8s.io"
+ kind: ClusterRole
+ name: "ibm-privileged-clusterrole"
+subjects: 
+- apiGroup: "rbac.authorization.k8s.io"
+  kind: Group
+  name: "system:serviceaccounts:orchid"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: orchid-student-ui-config
+  namespace: orchid
+data:
+  COLLECTOR_CONFIG: 'http://orchid-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'  
+---
+---  # Team ---------------------------------
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: palegreen
+---
+apiVersion: "rbac.authorization.k8s.io/v1"
+kind: RoleBinding
+metadata: 
+ name: "ibm-privileged-clusterrole-rolebinding"
+ namespace: palegreen
+roleRef: 
+ apiGroup: "rbac.authorization.k8s.io"
+ kind: ClusterRole
+ name: "ibm-privileged-clusterrole"
+subjects: 
+- apiGroup: "rbac.authorization.k8s.io"
+  kind: Group
+  name: "system:serviceaccounts:palegreen"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: palegreen-student-ui-config
+  namespace: palegreen
+data:
+  COLLECTOR_CONFIG: 'http://palegreen-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'  
+---
+---  # Team ---------------------------------
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: steelblue
+---
+apiVersion: "rbac.authorization.k8s.io/v1"
+kind: RoleBinding
+metadata: 
+ name: "ibm-privileged-clusterrole-rolebinding"
+ namespace: steelblue
+roleRef: 
+ apiGroup: "rbac.authorization.k8s.io"
+ kind: ClusterRole
+ name: "ibm-privileged-clusterrole"
+subjects: 
+- apiGroup: "rbac.authorization.k8s.io"
+  kind: Group
+  name: "system:serviceaccounts:steelblue"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: steelblue-student-ui-config
+  namespace: steelblue
+data:
+  COLLECTOR_CONFIG: 'http://steelblue-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'  
+---
+---  # Team ---------------------------------
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: tomato
+---
+apiVersion: "rbac.authorization.k8s.io/v1"
+kind: RoleBinding
+metadata: 
+ name: "ibm-privileged-clusterrole-rolebinding"
+ namespace: tomato
+roleRef: 
+ apiGroup: "rbac.authorization.k8s.io"
+ kind: ClusterRole
+ name: "ibm-privileged-clusterrole"
+subjects: 
+- apiGroup: "rbac.authorization.k8s.io"
+  kind: Group
+  name: "system:serviceaccounts:tomato"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: tomato-student-ui-config
+  namespace: tomato
+data:
+  COLLECTOR_CONFIG: 'http://tomato-student-ui'
+  INSTRUCTOR_CONFIG: 'http://dashboard.default'  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
