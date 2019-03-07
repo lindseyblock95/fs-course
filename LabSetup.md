@@ -1,3 +1,20 @@
+# Docker image creation
+
+Multiple Docker images are created in support of labs in the FS03 Diagnose Labs course.  The files needed to create these images are contained in the images directory of this repository. The Docker images that need to be create are:
+
+| Container name | Source directory |
+| :--- | :--- |
+| avail | images/fs-avail | 
+| baker | images/fs-baker | 
+| carbon | images/fs-carbon | 
+| doors | images/fs-doors | 
+| eagle | images/fs-eagle | 
+| floor | images/fs-floor | 
+| gonzo | images/fs-gonzo |
+
+Within each source directory is a file, build_push.sh.  This file will build and push the Docker image to the __ibmicpoco__ docker hub account.  This file must be edited to change the value __ibmicpcoc__ to your own docker hub account.  
+
+
 # Lab setup
 
 The Collector UI for the instructor and students must be created using Kubernetes resource definiton files.  Along with the Collector UI a series of Kubernetes (K8) Pods are created for each student.  The following table identifies the resources that are created to support the training.  When the value __&#60;team&#62;__ is shown in the following table the value represents the team name / namespace.  The team name is a color.  The default setup scripts create 0 to 42 sets of resources for students/teams.  
