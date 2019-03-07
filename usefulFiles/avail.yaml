@@ -1,0 +1,47 @@
+--- # Fast Start :: Problem Diagnosis and Troubleshooting Lab 
+---
+apiVersion: apps/v1    
+kind: Deployment
+metadata:
+  name: <team>-avail
+  namespace: <team>
+  labels:
+    app: <team>-avail
+spec:
+  selector:
+    matchLabels:
+      app: <team>-avail
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: <team>-avail
+    spec:
+      containers:
+      - name: <team>-avail
+        image: ibmicpcoc/avail:latest
+        imagePullPolicy: Always
+        command: ["/bin/bash", "-c", "/app/avail.sh"]
+        env:
+          - name: APP_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: APP_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: COLLECTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: <team>-collector-config
+                key: COLLECTOR_CONFIG
+          - name: INSTRUCTOR_CONFIG
+            valueFrom: 
+              configMapKeyRef:
+                name: <team>-collector-config
+                key: INSTRUCTOR_CONFIG
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
