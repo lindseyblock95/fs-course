@@ -1,0 +1,9 @@
+FROM alpine
+MAINTAINER IBM ICP CoC Team
+
+CMD mkdir /app
+WORKDIR /app
+COPY avail.sh .
+
+RUN apk add curl bash nano \
+&& chmod +x avail.sh 
