@@ -19,13 +19,11 @@
 
 :button3_color: #f00
 
-:infotab: <br><a href="https://github.com/IBM-ICP-CoC/faststart-eu/blob/master/documents/M4ICP001-fast-start-2019.pptx"  target="_blank">Presentation - Powerpoint document </a>
+:infotab: <br><a href="https://github.com/IBM-ICP-CoC/fs-course/blob/master/usefulFiles/Presentation.pptx"  target="_blank">Presentation - Powerpoint document </a>
 
-:infotab: <br><a href="https://github.com/IBM-ICP-CoC/faststart-eu/blob/master/documents/M4ICP001-fast-start-2019.pdf"  target="_blank">Presentation - PDF document </a>
+:infotab: <br><a href="https://github.com/IBM-ICP-CoC/fs-course/blob/master/usefulFiles/fs02_using_tools.pdf"  target="_blank">Course PDF</a>
 
 :infotab: <hr>
-
-:infotab: <br><a href="https://github.com/IBM-ICP-CoC/faststart-eu/blob/master/resources"  target="_blank">Additional resources</a>
 
 :infotab: <br><br>Example debug flow:<img class="mx-auto d-block" src="../courseimages/debug-flow.png" height="450" width="1000">
 

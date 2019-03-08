@@ -17,13 +17,9 @@
 
 :button3_delay: 
 
-:infotab: <br><a href="https://github.com/IBM-ICP-CoC/faststart-eu/blob/master/documents/M4ICP001-fast-start-2019.pptx"  target="_blank">Presentation - Powerpoint document </a>
+:infotab: <br><a href="https://github.com/IBM-ICP-CoC/fs-course/blob/master/usefulFiles/Presentation.pptx"  target="_blank">Presentation - Powerpoint document </a>
 
-:infotab: <br><a href="https://github.com/IBM-ICP-CoC/faststart-eu/blob/master/documents/M4ICP001-fast-start-2019.pdf"  target="_blank">Presentation - PDF document </a>
-
-:infotab: <hr>
-
-:infotab: <br><a href="https://github.com/IBM-ICP-CoC/faststart-eu/blob/master/resources"  target="_blank">Additional resources</a>
+:infotab: <br><a href="https://github.com/IBM-ICP-CoC/fs-course/blob/master/usefulFiles/fs01_tools.pdf"  target="_blank">Course PDF</a>
 
 :infotab: <hr>
 

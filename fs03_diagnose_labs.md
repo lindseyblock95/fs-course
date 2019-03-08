@@ -13,13 +13,11 @@
 :button3_delay: 30000
 :button3_color: #f00
 
-:infotab: <br><a href="https://github.com/IBM-ICP-CoC/faststart-eu/blob/master/documents/M4ICP001-fast-start-2019.pptx"  target="_blank">Presentation - Powerpoint document </a>
+:infotab: <br><a href="https://github.com/IBM-ICP-CoC/fs-course/blob/master/usefulFiles/Presentation.pptx"  target="_blank">Presentation - Powerpoint document </a>
 
-:infotab: <br><a href="https://github.com/IBM-ICP-CoC/faststart-eu/blob/master/documents/M4ICP001-fast-start-2019.pdf"  target="_blank">Presentation - PDF document </a>
+:infotab: <br><a href="https://github.com/IBM-ICP-CoC/fs-course/blob/master/usefulFiles/fs03_diagnose_labs.pdf"  target="_blank">Course PDF</a>
 
 :infotab: <hr>
-
-:infotab: <br><a href="https://github.com/IBM-ICP-CoC/faststart-eu/blob/master/resources"  target="_blank">Additional resources</a>
 
 :infotab: <br><br>Example debug flow:<img class="mx-auto d-block" src="../courseimages/debug-flow.png" height="450" width="1000">
 
@@ -40,9 +38,8 @@
 This lab is intended to get the team familar with creating a pod in the team namespace.  There is no diagnosis or problem to be researched.  The lab is complete once the pod is created in the team namespace.
 
 #### Resources
-
-* K8 yaml	- [house.yaml](https://github.ibm.com/daveweilert/faststart/blob/master/scripts/house.yaml)
-* Dockerfile - [Dockerfile](https://github.ibm.com/daveweilert/faststart/blob/master/scripts/house_Dockerfile)
+* K8 yaml - [house.yaml](https://github.com/IBM-ICP-CoC/fs-course/blob/master/usefulFiles/house.yaml)
+* Dockerfile - [Dockerfile](https://github.com/IBM-ICP-CoC/fs-course/blob/master/usefulFiles/house_Dockerfile)
 
 #### Useful information
 
@@ -168,8 +165,8 @@ Use the debug flow to guide the steps you should attempt in diagnosis of the iss
 
 #### Resources
 
-* K8 yaml	- [baker.yaml](https://github.ibm.com/daveweilert/faststart/blob/master/scripts/baker.yaml)
-* Dockerfile - [Dockerfile](https://github.ibm.com/daveweilert/faststart/blob/master/scripts/baker_Dockerfile)
+* K8 yaml	- [baker.yaml](https://github.com/IBM-ICP-CoC/fs-course/blob/master/usefulFiles/baker.yaml)
+* Dockerfile - [Dockerfile](https://github.com/IBM-ICP-CoC/fs-course/blob/master/usefulFiles/baker_Dockerfile)
 
 #### Useful information
 
@@ -285,8 +282,8 @@ Use the debug flow to guide the steps you should attempt in diagnosis of the iss
 
 #### Useful information
 
-K8 yaml	- [carbon.yaml](https://github.ibm.com/daveweilert/faststart/blob/master/scripts/carbon.yaml)  
-Dockerfile - [Dockerfile](https://github.ibm.com/daveweilert/faststart/blob/master/scripts/carbon_Dockerfile)  
+K8 yaml	- [carbon.yaml](https://github.com/IBM-ICP-CoC/fs-course/blob/master/usefulFiles/carbon.yaml)  
+Dockerfile - [Dockerfile](https://github.com/IBM-ICP-CoC/fs-course/blob/master/usefulFiles/carbon_Dockerfile)  
 
 | Item | Value  |
 | :--- | :--- |
@@ -613,8 +610,8 @@ Use the debug flow to guide the steps you should attempt in diagnosis of the iss
 
 #### Resources
 
-* K8 yaml	- [doors.yaml](https://github.ibm.com/daveweilert/faststart/blob/master/scripts/doors.yaml)
-* Dockerfile - [Dockerfile](https://github.ibm.com/daveweilert/faststart/blob/master/scripts/doors_Dockerfile)
+* K8 yaml	- [doors.yaml](https://github.com/IBM-ICP-CoC/fs-course/blob/master/usefulFiles/doors.yaml)
+* Dockerfile - [Dockerfile](https://github.com/IBM-ICP-CoC/fs-course/blob/master/usefulFiles/doors_Dockerfile)
 
 
 #### Useful information
@@ -817,8 +814,8 @@ Use the debug flow to guide the steps you should attempt in diagnosis of the iss
 
 #### Resources
 
-* K8 yaml	- [avail.yaml](https://github.ibm.com/daveweilert/faststart/blob/master/scripts/avail.yaml)
-* Dockerfile - [Dockerfile](https://github.ibm.com/daveweilert/faststart/blob/master/scripts/avail_Dockerfile)
+* K8 yaml	- [avail.yaml](https://github.com/IBM-ICP-CoC/fs-course/blob/master/usefulFiles/avail.yaml)
+* Dockerfile - [Dockerfile](https://github.com/IBM-ICP-CoC/fs-course/blob/master/usefulFiles/avail_Dockerfile)
 
 #### Useful information
 
@@ -1036,8 +1033,8 @@ All references to "team" or &#60;team&#62; should be replaced with your team nam
 
 #### Resources
 
-* K8 yaml	- [eagle.yaml](https://github.ibm.com/daveweilert/faststart/blob/master/scripts/eagle.yaml)
-* Dockerfile - [Dockerfile](https://github.ibm.com/daveweilert/faststart/blob/master/scripts/eagle_Dockerfile)
+* K8 yaml	- [eagle.yaml](https://github.com/IBM-ICP-CoC/fs-course/blob/master/usefulFiles/eagle.yaml)
+* Dockerfile - [Dockerfile](https://github.com/IBM-ICP-CoC/fs-course/blob/master/usefulFiles/eagle_Dockerfile)
 
 #### Useful information
 
@@ -1113,8 +1110,8 @@ All references to "team" or &#60;team&#62; should be replaced with your team nam
 
 #### Resources
 
-* K8 yaml	- [floor.yaml](https://github.ibm.com/daveweilert/faststart/blob/master/scripts/floor.yaml)
-* Dockerfile - [Dockerfile](https://github.ibm.com/daveweilert/faststart/blob/master/scripts/floor_Dockerfile)
+* K8 yaml	- [floor.yaml](https://github.com/IBM-ICP-CoC/fs-course/blob/master/usefulFiles/floor.yaml)
+* Dockerfile - [Dockerfile](https://github.com/IBM-ICP-CoC/fs-course/blob/master/usefulFiles/floor_Dockerfile)
 
 #### Useful information
 
@@ -1269,8 +1266,8 @@ All references to "team" or &#60;team&#62; should be replaced with your team nam
 
 #### Resources
 
-* K8 yaml	- [gonzo.yaml](https://github.ibm.com/daveweilert/faststart/blob/master/scripts/gonzo.yaml)
-* Dockerfile - [Dockerfile](https://github.ibm.com/daveweilert/faststart/blob/master/scripts/gonzo_Dockerfile)
+* K8 yaml	- [gonzo.yaml](https://github.com/IBM-ICP-CoC/fs-course/blob/master/usefulFiles/gonzo.yaml)
+* Dockerfile - [Dockerfile](https://github.com/IBM-ICP-CoC/fs-course/blob/master/usefulFiles/gonzo_Dockerfile)
 
 #### Useful information
 
