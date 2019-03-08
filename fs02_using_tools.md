@@ -19,9 +19,9 @@
 
 :button3_color: #f00
 
-:infotab: <br><a href="https://github.com/IBM-ICP-CoC/fs-course/blob/master/usefulFiles/Presentation.pptx"  target="_blank">Presentation - Powerpoint document </a>
+:infotab: <br><a href="https://github.com/IBM-ICP-CoC/fs-course/blob/master/Presentation.pptx"  target="_blank">Presentation - Powerpoint document </a>
 
-:infotab: <br><a href="https://github.com/IBM-ICP-CoC/fs-course/blob/master/usefulFiles/fs02_using_tools.pdf"  target="_blank">Course PDF</a>
+:infotab: <br><a href="https://github.com/IBM-ICP-CoC/fs-course/blob/master/fs02_using_tools.pdf"  target="_blank">Course PDF</a>
 
 :infotab: <hr>
 

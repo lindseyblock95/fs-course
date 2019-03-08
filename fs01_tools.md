@@ -17,9 +17,9 @@
 
 :button3_delay: 
 
-:infotab: <br><a href="https://github.com/IBM-ICP-CoC/fs-course/blob/master/usefulFiles/Presentation.pptx"  target="_blank">Presentation - Powerpoint document </a>
+:infotab: <br><a href="https://github.com/IBM-ICP-CoC/fs-course/blob/master/Presentation.pptx"  target="_blank">Presentation - Powerpoint document </a>
 
-:infotab: <br><a href="https://github.com/IBM-ICP-CoC/fs-course/blob/master/usefulFiles/fs01_tools.pdf"  target="_blank">Course PDF</a>
+:infotab: <br><a href="https://github.com/IBM-ICP-CoC/fs-course/blob/master/fs01_tools.pdf"  target="_blank">Course PDF</a>
 
 :infotab: <hr>
 
