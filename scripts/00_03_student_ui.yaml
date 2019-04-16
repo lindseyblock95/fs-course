@@ -37,7 +37,7 @@ spec:
           - name: COLLECTOR_CONFIG
             valueFrom: 
               configMapKeyRef:
-                name: pink-student-ui-config
+                name: pink-collector-config
                 key: COLLECTOR_CONFIG
         resources:
           requests:
@@ -79,7 +79,7 @@ spec:
           - name: COLLECTOR_CONFIG
             valueFrom: 
               configMapKeyRef:
-                name: olive-student-ui-config
+                name: olive-collector-config
                 key: COLLECTOR_CONFIG
         resources:
           requests:
@@ -121,7 +121,7 @@ spec:
           - name: COLLECTOR_CONFIG
             valueFrom: 
               configMapKeyRef:
-                name: salmon-student-ui-config
+                name: salmon-collector-config
                 key: COLLECTOR_CONFIG
         resources:
           requests:
@@ -163,7 +163,7 @@ spec:
           - name: COLLECTOR_CONFIG
             valueFrom: 
               configMapKeyRef:
-                name: red-student-ui-config
+                name: red-collector-config
                 key: COLLECTOR_CONFIG
         resources:
           requests:
@@ -205,7 +205,7 @@ spec:
           - name: COLLECTOR_CONFIG
             valueFrom: 
               configMapKeyRef:
-                name: lime-student-ui-config
+                name: lime-collector-config
                 key: COLLECTOR_CONFIG
         resources:
           requests:
@@ -247,7 +247,7 @@ spec:
           - name: COLLECTOR_CONFIG
             valueFrom: 
               configMapKeyRef:
-                name: green-student-ui-config
+                name: green-collector-config
                 key: COLLECTOR_CONFIG
         resources:
           requests:
@@ -289,7 +289,7 @@ spec:
           - name: COLLECTOR_CONFIG
             valueFrom: 
               configMapKeyRef:
-                name: teal-student-ui-config
+                name: teal-collector-config
                 key: COLLECTOR_CONFIG
         resources:
           requests:
@@ -331,7 +331,7 @@ spec:
           - name: COLLECTOR_CONFIG
             valueFrom: 
               configMapKeyRef:
-                name: aqua-student-ui-config
+                name: aqua-collector-config
                 key: COLLECTOR_CONFIG
         resources:
           requests:
@@ -373,7 +373,7 @@ spec:
           - name: COLLECTOR_CONFIG
             valueFrom: 
               configMapKeyRef:
-                name: gold-student-ui-config
+                name: gold-collector-config
                 key: COLLECTOR_CONFIG
         resources:
           requests:
@@ -415,7 +415,7 @@ spec:
           - name: COLLECTOR_CONFIG
             valueFrom: 
               configMapKeyRef:
-                name: khaki-student-ui-config
+                name: khaki-collector-config
                 key: COLLECTOR_CONFIG
         resources:
           requests:
@@ -457,7 +457,7 @@ spec:
           - name: COLLECTOR_CONFIG
             valueFrom: 
               configMapKeyRef:
-                name: yellow-student-ui-config
+                name: yellow-collector-config
                 key: COLLECTOR_CONFIG
         resources:
           requests:
@@ -499,7 +499,7 @@ spec:
           - name: COLLECTOR_CONFIG
             valueFrom: 
               configMapKeyRef:
-                name: coral-student-ui-config
+                name: coral-collector-config
                 key: COLLECTOR_CONFIG
         resources:
           requests:
@@ -541,7 +541,7 @@ spec:
           - name: COLLECTOR_CONFIG
             valueFrom: 
               configMapKeyRef:
-                name: orange-student-ui-config
+                name: orange-collector-config
                 key: COLLECTOR_CONFIG
         resources:
           requests:
@@ -583,7 +583,7 @@ spec:
           - name: COLLECTOR_CONFIG
             valueFrom: 
               configMapKeyRef:
-                name: navy-student-ui-config
+                name: navy-collector-config
                 key: COLLECTOR_CONFIG
         resources:
           requests:
@@ -625,7 +625,7 @@ spec:
           - name: COLLECTOR_CONFIG
             valueFrom: 
               configMapKeyRef:
-                name: blue-student-ui-config
+                name: blue-collector-config
                 key: COLLECTOR_CONFIG
         resources:
           requests:
@@ -667,7 +667,7 @@ spec:
           - name: COLLECTOR_CONFIG
             valueFrom: 
               configMapKeyRef:
-                name: lightblue-student-ui-config
+                name: lightblue-collector-config
                 key: COLLECTOR_CONFIG
         resources:
           requests:
@@ -709,7 +709,7 @@ spec:
           - name: COLLECTOR_CONFIG
             valueFrom: 
               configMapKeyRef:
-                name: brown-student-ui-config
+                name: brown-collector-config
                 key: COLLECTOR_CONFIG
         resources:
           requests:
@@ -751,7 +751,7 @@ spec:
           - name: COLLECTOR_CONFIG
             valueFrom: 
               configMapKeyRef:
-                name: maroon-student-ui-config
+                name: maroon-collector-config
                 key: COLLECTOR_CONFIG
         resources:
           requests:
@@ -793,7 +793,7 @@ spec:
           - name: COLLECTOR_CONFIG
             valueFrom: 
               configMapKeyRef:
-                name: tan-student-ui-config
+                name: tan-collector-config
                 key: COLLECTOR_CONFIG
         resources:
           requests:
@@ -835,7 +835,7 @@ spec:
           - name: COLLECTOR_CONFIG
             valueFrom: 
               configMapKeyRef:
-                name: wheat-student-ui-config
+                name: wheat-collector-config
                 key: COLLECTOR_CONFIG
         resources:
           requests:
@@ -877,7 +877,7 @@ spec:
           - name: COLLECTOR_CONFIG
             valueFrom: 
               configMapKeyRef:
-                name: plum-student-ui-config
+                name: plum-collector-config
                 key: COLLECTOR_CONFIG
         resources:
           requests:
@@ -919,7 +919,7 @@ spec:
           - name: COLLECTOR_CONFIG
             valueFrom: 
               configMapKeyRef:
-                name: magenta-student-ui-config
+                name: magenta-collector-config
                 key: COLLECTOR_CONFIG
         resources:
           requests:
@@ -961,7 +961,7 @@ spec:
           - name: COLLECTOR_CONFIG
             valueFrom: 
               configMapKeyRef:
-                name: purple-student-ui-config
+                name: purple-collector-config
                 key: COLLECTOR_CONFIG
         resources:
           requests:
@@ -1003,7 +1003,7 @@ spec:
           - name: COLLECTOR_CONFIG
             valueFrom: 
               configMapKeyRef:
-                name: gray-student-ui-config
+                name: gray-collector-config
                 key: COLLECTOR_CONFIG
         resources:
           requests:
@@ -1045,7 +1045,7 @@ spec:
           - name: COLLECTOR_CONFIG
             valueFrom: 
               configMapKeyRef:
-                name: beige-student-ui-config
+                name: beige-collector-config
                 key: COLLECTOR_CONFIG
         resources:
           requests:
@@ -1087,7 +1087,7 @@ spec:
           - name: COLLECTOR_CONFIG
             valueFrom: 
               configMapKeyRef:
-                name: black-student-ui-config
+                name: black-collector-config
                 key: COLLECTOR_CONFIG
         resources:
           requests:
@@ -1129,7 +1129,7 @@ spec:
           - name: COLLECTOR_CONFIG
             valueFrom: 
               configMapKeyRef:
-                name: aliceblue-student-ui-config
+                name: aliceblue-collector-config
                 key: COLLECTOR_CONFIG
         resources:
           requests:
@@ -1171,7 +1171,7 @@ spec:
           - name: COLLECTOR_CONFIG
             valueFrom: 
               configMapKeyRef:
-                name: azure-student-ui-config
+                name: azure-collector-config
                 key: COLLECTOR_CONFIG
         resources:
           requests:
@@ -1213,7 +1213,7 @@ spec:
           - name: COLLECTOR_CONFIG
             valueFrom: 
               configMapKeyRef:
-                name: burlywood-student-ui-config
+                name: burlywood-collector-config
                 key: COLLECTOR_CONFIG
         resources:
           requests:
@@ -1256,7 +1256,7 @@ spec:
           - name: COLLECTOR_CONFIG
             valueFrom: 
               configMapKeyRef:
-                name: cornsilk-student-ui-config
+                name: cornsilk-collector-config
                 key: COLLECTOR_CONFIG
         resources:
           requests:
@@ -1299,7 +1299,7 @@ spec:
           - name: COLLECTOR_CONFIG
             valueFrom: 
               configMapKeyRef:
-                name: darkgray-student-ui-config
+                name: darkgray-collector-config
                 key: COLLECTOR_CONFIG
         resources:
           requests:
@@ -1341,7 +1341,7 @@ spec:
           - name: COLLECTOR_CONFIG
             valueFrom: 
               configMapKeyRef:
-                name: darkred-student-ui-config
+                name: darkred-collector-config
                 key: COLLECTOR_CONFIG
         resources:
           requests:
@@ -1384,7 +1384,7 @@ spec:
           - name: COLLECTOR_CONFIG
             valueFrom: 
               configMapKeyRef:
-                name: deeppink-student-ui-config
+                name: deeppink-collector-config
                 key: COLLECTOR_CONFIG
         resources:
           requests:
@@ -1427,7 +1427,7 @@ spec:
           - name: COLLECTOR_CONFIG
             valueFrom: 
               configMapKeyRef:
-                name: firebrick-student-ui-config
+                name: firebrick-collector-config
                 key: COLLECTOR_CONFIG
         resources:
           requests:
@@ -1470,7 +1470,7 @@ spec:
           - name: COLLECTOR_CONFIG
             valueFrom: 
               configMapKeyRef:
-                name: indigo-student-ui-config
+                name: indigo-collector-config
                 key: COLLECTOR_CONFIG
         resources:
           requests:
@@ -1513,7 +1513,7 @@ spec:
           - name: COLLECTOR_CONFIG
             valueFrom: 
               configMapKeyRef:
-                name: lavender-student-ui-config
+                name: lavender-collector-config
                 key: COLLECTOR_CONFIG
         resources:
           requests:
@@ -1556,7 +1556,7 @@ spec:
           - name: COLLECTOR_CONFIG
             valueFrom: 
               configMapKeyRef:
-                name: mintcream-student-ui-config
+                name: mintcream-collector-config
                 key: COLLECTOR_CONFIG
         resources:
           requests:
@@ -1599,7 +1599,7 @@ spec:
           - name: COLLECTOR_CONFIG
             valueFrom: 
               configMapKeyRef:
-                name: mistyrose-student-ui-config
+                name: mistyrose-collector-config
                 key: COLLECTOR_CONFIG
         resources:
           requests:
@@ -1642,7 +1642,7 @@ spec:
           - name: COLLECTOR_CONFIG
             valueFrom: 
               configMapKeyRef:
-                name: orchid-student-ui-config
+                name: orchid-collector-config
                 key: COLLECTOR_CONFIG
         resources:
           requests:
@@ -1685,7 +1685,7 @@ spec:
           - name: COLLECTOR_CONFIG
             valueFrom: 
               configMapKeyRef:
-                name: palegreen-student-ui-config
+                name: palegreen-collector-config
                 key: COLLECTOR_CONFIG
         resources:
           requests:
@@ -1728,7 +1728,7 @@ spec:
           - name: COLLECTOR_CONFIG
             valueFrom: 
               configMapKeyRef:
-                name: steelblue-student-ui-config
+                name: steelblue-collector-config
                 key: COLLECTOR_CONFIG
         resources:
           requests:
@@ -1770,7 +1770,7 @@ spec:
           - name: COLLECTOR_CONFIG
             valueFrom: 
               configMapKeyRef:
-                name: tomato-student-ui-config
+                name: tomato-collector-config
                 key: COLLECTOR_CONFIG
         resources:
           requests:
