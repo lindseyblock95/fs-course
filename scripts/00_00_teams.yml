@@ -23,7 +23,7 @@ metadata:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: avail-student-ui-config
+  name: avail-collector-config
   namespace: avail
 data:
   COLLECTOR_CONFIG: 'http://avail-student-ui'
@@ -53,7 +53,7 @@ subjects:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: yellow-student-ui-config
+  name: yellow-collector-config
   namespace: yellow
 data:
   COLLECTOR_CONFIG: 'http://yellow-student-ui'
@@ -83,7 +83,7 @@ subjects:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: red-student-ui-config
+  name: red-collector-config
   namespace: red
 data:
   COLLECTOR_CONFIG: 'http://red-student-ui'
@@ -113,7 +113,7 @@ subjects:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: blue-student-ui-config
+  name: blue-collector-config
   namespace: blue
 data:
   COLLECTOR_CONFIG: 'http://blue-student-ui'
@@ -143,7 +143,7 @@ subjects:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: pink-student-ui-config
+  name: pink-collector-config
   namespace: pink
 data:
   COLLECTOR_CONFIG: 'http://pink-student-ui'
@@ -173,7 +173,7 @@ subjects:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: olive-student-ui-config
+  name: olive-collector-config
   namespace: olive
 data:
   COLLECTOR_CONFIG: 'http://olive-student-ui'
@@ -203,7 +203,7 @@ subjects:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: salmon-student-ui-config
+  name: salmon-collector-config
   namespace: salmon
 data:
   COLLECTOR_CONFIG: 'http://salmon-student-ui'
@@ -233,7 +233,7 @@ subjects:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: lime-student-ui-config
+  name: lime-collector-config
   namespace: lime
 data:
   COLLECTOR_CONFIG: 'http://lime-student-ui'
@@ -263,7 +263,7 @@ subjects:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: green-student-ui-config
+  name: green-collector-config
   namespace: green
 data:
   COLLECTOR_CONFIG: 'http://green-student-ui'
@@ -293,7 +293,7 @@ subjects:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: teal-student-ui-config
+  name: teal-collector-config
   namespace: teal
 data:
   COLLECTOR_CONFIG: 'http://teal-student-ui'
@@ -323,7 +323,7 @@ subjects:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: aqua-student-ui-config
+  name: aqua-collector-config
   namespace: aqua
 data:
   COLLECTOR_CONFIG: 'http://aqua-student-ui'
@@ -353,7 +353,7 @@ subjects:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: gold-student-ui-config
+  name: gold-collector-config
   namespace: gold
 data:
   COLLECTOR_CONFIG: 'http://gold-student-ui'
@@ -383,7 +383,7 @@ subjects:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: khaki-student-ui-config
+  name: khaki-collector-config
   namespace: khaki
 data:
   COLLECTOR_CONFIG: 'http://khaki-student-ui'
@@ -413,7 +413,7 @@ subjects:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: coral-student-ui-config
+  name: coral-collector-config
   namespace: coral
 data:
   COLLECTOR_CONFIG: 'http://coral-student-ui'
@@ -443,7 +443,7 @@ subjects:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: orange-student-ui-config
+  name: orange-collector-config
   namespace: orange
 data:
   COLLECTOR_CONFIG: 'http://orange-student-ui'
@@ -473,7 +473,7 @@ subjects:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: navy-student-ui-config
+  name: navy-collector-config
   namespace: navy
 data:
   COLLECTOR_CONFIG: 'http://navy-student-ui'
@@ -503,7 +503,7 @@ subjects:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: lightblue-student-ui-config
+  name: lightblue-collector-config
   namespace: lightblue
 data:
   COLLECTOR_CONFIG: 'http://lightblue-student-ui'
@@ -533,7 +533,7 @@ subjects:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: brown-student-ui-config
+  name: brown-collector-config
   namespace: brown
 data:
   COLLECTOR_CONFIG: 'http://brown-student-ui'
@@ -563,7 +563,7 @@ subjects:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: maroon-student-ui-config
+  name: maroon-collector-config
   namespace: maroon
 data:
   COLLECTOR_CONFIG: 'http://maroon-student-ui'
@@ -593,7 +593,7 @@ subjects:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: tan-student-ui-config
+  name: tan-collector-config
   namespace: tan
 data:
   COLLECTOR_CONFIG: 'http://tan-student-ui'
@@ -623,7 +623,7 @@ subjects:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: wheat-student-ui-config
+  name: wheat-collector-config
   namespace: wheat
 data:
   COLLECTOR_CONFIG: 'http://wheat-student-ui'
@@ -653,7 +653,7 @@ subjects:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: plum-student-ui-config
+  name: plum-collector-config
   namespace: plum
 data:
   COLLECTOR_CONFIG: 'http://plum-student-ui'
@@ -683,7 +683,7 @@ subjects:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: magenta-student-ui-config
+  name: magenta-collector-config
   namespace: magenta
 data:
   COLLECTOR_CONFIG: 'http://magenta-student-ui'
@@ -713,7 +713,7 @@ subjects:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: purple-student-ui-config
+  name: purple-collector-config
   namespace: purple
 data:
   COLLECTOR_CONFIG: 'http://purple-student-ui'
@@ -743,7 +743,7 @@ subjects:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: gray-student-ui-config
+  name: gray-collector-config
   namespace: gray
 data:
   COLLECTOR_CONFIG: 'http://gray-student-ui'
@@ -773,7 +773,7 @@ subjects:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: beige-student-ui-config
+  name: beige-collector-config
   namespace: beige
 data:
   COLLECTOR_CONFIG: 'http://beige-student-ui'
@@ -803,7 +803,7 @@ subjects:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: black-student-ui-config
+  name: black-collector-config
   namespace: black
 data:
   COLLECTOR_CONFIG: 'http://black-student-ui'
@@ -833,7 +833,7 @@ subjects:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: aliceblue-student-ui-config
+  name: aliceblue-collector-config
   namespace: aliceblue
 data:
   COLLECTOR_CONFIG: 'http://aliceblue-student-ui'
@@ -863,7 +863,7 @@ subjects:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: azure-student-ui-config
+  name: azure-collector-config
   namespace: azure
 data:
   COLLECTOR_CONFIG: 'http://azure-student-ui'
@@ -893,7 +893,7 @@ subjects:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: burlywood-student-ui-config
+  name: burlywood-collector-config
   namespace: burlywood
 data:
   COLLECTOR_CONFIG: 'http://burlywood-student-ui'
@@ -923,7 +923,7 @@ subjects:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: cornsilk-student-ui-config
+  name: cornsilk-collector-config
   namespace: cornsilk
 data:
   COLLECTOR_CONFIG: 'http://cornsilk-student-ui'
@@ -953,7 +953,7 @@ subjects:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: darkgray-student-ui-config
+  name: darkgray-collector-config
   namespace: darkgray
 data:
   COLLECTOR_CONFIG: 'http://darkgray-student-ui'
@@ -983,7 +983,7 @@ subjects:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: darkred-student-ui-config
+  name: darkred-collector-config
   namespace: darkred
 data:
   COLLECTOR_CONFIG: 'http://darkred-student-ui'
@@ -1013,7 +1013,7 @@ subjects:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: deeppink-student-ui-config
+  name: deeppink-collector-config
   namespace: deeppink
 data:
   COLLECTOR_CONFIG: 'http://deeppink-student-ui'
@@ -1043,7 +1043,7 @@ subjects:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: firebrick-student-ui-config
+  name: firebrick-collector-config
   namespace: firebrick
 data:
   COLLECTOR_CONFIG: 'http://firebrick-student-ui'
@@ -1073,7 +1073,7 @@ subjects:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: indigo-student-ui-config
+  name: indigo-collector-config
   namespace: indigo
 data:
   COLLECTOR_CONFIG: 'http://indigo-student-ui'
@@ -1103,7 +1103,7 @@ subjects:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: lavender-student-ui-config
+  name: lavender-collector-config
   namespace: lavender
 data:
   COLLECTOR_CONFIG: 'http://lavender-student-ui'
@@ -1133,7 +1133,7 @@ subjects:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: mintcream-student-ui-config
+  name: mintcream-collector-config
   namespace: mintcream
 data:
   COLLECTOR_CONFIG: 'http://mintcream-student-ui'
@@ -1163,7 +1163,7 @@ subjects:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: mistyrose-student-ui-config
+  name: mistyrose-collector-config
   namespace: mistyrose
 data:
   COLLECTOR_CONFIG: 'http://mistyrose-student-ui'
@@ -1193,7 +1193,7 @@ subjects:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: orchid-student-ui-config
+  name: orchid-collector-config
   namespace: orchid
 data:
   COLLECTOR_CONFIG: 'http://orchid-student-ui'
@@ -1223,7 +1223,7 @@ subjects:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: palegreen-student-ui-config
+  name: palegreen-collector-config
   namespace: palegreen
 data:
   COLLECTOR_CONFIG: 'http://palegreen-student-ui'
@@ -1253,7 +1253,7 @@ subjects:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: steelblue-student-ui-config
+  name: steelblue-collector-config
   namespace: steelblue
 data:
   COLLECTOR_CONFIG: 'http://steelblue-student-ui'
@@ -1283,7 +1283,7 @@ subjects:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: tomato-student-ui-config
+  name: tomato-collector-config
   namespace: tomato
 data:
   COLLECTOR_CONFIG: 'http://tomato-student-ui'

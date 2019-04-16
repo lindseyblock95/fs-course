@@ -4,13 +4,15 @@ K8 and ICP problem determination and debugging courses.  These courses are viewe
 
 The proper use of these course files requires them to be placed in __public/coursecatalog__ of the Collector application.
 
-#### File formats
-
-Refer to the CONTENT.md file in the Collector repository for a description of the course file formats.
+#### Course Files and format
 
 The course content used within Collector is created using Markdown. Markdown is a lightweight markup language with plain text formatting syntax. Its design allows it to be converted to many output formats.
 
 The Collector UI (user interface) will display the rendered markdown using two primary tabs Courses and Class work. Multiple courses can be available in the drop down of the Courses tab.
+
+For detailed formatting and syntax fo the course files refer to the CONTENT.md file in the Collector repository for a description of the course file formats.
+
+
 
 #### FS01
 
