@@ -17,9 +17,13 @@
 
 :button3_delay: 
 
-:infotab: <br><a href="https://github.com/IBM-ICP-CoC/fs-course/blob/master/Presentation.pptx"  target="_blank">Presentation - Powerpoint document </a>
+:infotab: <br><a href="https://github.com/IBM-ICP-CoC/faststart-eu/blob/master/documents/M4ICP001-fast-start-2019.pptx"  target="_blank">Presentation - Powerpoint document </a>
 
-:infotab: <br><a href="https://github.com/IBM-ICP-CoC/fs-course/blob/master/fs01_tools.pdf"  target="_blank">Course PDF</a>
+:infotab: <br><a href="https://github.com/IBM-ICP-CoC/faststart-eu/blob/master/documents/M4ICP001-fast-start-2019.pdf"  target="_blank">Presentation - PDF document </a>
+
+:infotab: <hr>
+
+:infotab: <br><a href="https://github.com/IBM-ICP-CoC/faststart-eu/blob/master/resources"  target="_blank">Additional resources</a>
 
 :infotab: <hr>
 
@@ -60,6 +64,19 @@ Press the link for the desired operating system and follow the installation inst
 
 [Windows](#windows_cloudctl)
 
+<br>
+
+#### Useful information the instructor will need to provide:
+
+- ICP IP address - this is the IP address of the ICP instance that will be used for this work.
+- VERSION - the version of the cloudctl CLI that will be downloaded.
+
+<br>
+
+__WARNING: If the "cloudctl" CLI is already installed ensure the version matches what the instructor provides.  If the version does not match it is highly recommended to install the version the instructor has provided.__
+
+<br>
+
 ----
 
 <a name="macOS_cloudctl"></a>
@@ -70,10 +87,11 @@ Press the link for the desired operating system and follow the installation inst
 <br>
 1 - Download the macOS CLI to install:
 
-Replace &#60;ICP IP&#62; with the instructor provided IP address of the IBM Cloud Private instance from where the CLI will be obtained.
+Replace __&#60;VERSION&#62;__ and __&#60;ICP IP&#62;__ with the instructor provided version an  IP address of the IBM Cloud Private instance from where the CLI will be obtained.
 
 ```
-curl -kLo cloudctl-darwin-amd64-3.1.1-973 https://<ICP IP>:8443/api/cli/cloudctl-darwin-amd64
+curl -kLo cloudctl-darwin-amd64-<VERSION> https://<ICP IP>:8443/api/cli/cloudctl-darwin-amd64
+
 ```
 	
 Example file name from the above curl command:
@@ -82,10 +100,11 @@ Example file name from the above curl command:
 <img src="../courseimages/cloudctl_file_macos.png">
 </p>
 
-2 - Rename the above downloaded file to cloudctl.  
+2 - Rename the above downloaded file to cloudctl.  Replace __&#60;VERSION&#62;__ with the instructor provided version.
+
 
 ```
-mv cloudctl-darwin-amd64-3.1.1-973 cloudctl
+mv cloudctl-darwin-amd64-<VERSION> cloudctl
 ```	
 
 3 - Make the kubectl binary executable.
@@ -94,8 +113,7 @@ mv cloudctl-darwin-amd64-3.1.1-973 cloudctl
 chmod +x ./cloudctl
 ```
 
-4 -  Move the binary in to your PATH.
-
+4 -  Move the binary in to your PATH.  
 ```
 sudo mv ./cloudctl /usr/local/bin/cloudctl
 ```
@@ -113,10 +131,10 @@ sudo mv ./cloudctl /usr/local/bin/cloudctl
 <br>
 1 - Download the Linux CLI to install:
 
-Replace <ICP IP> with the IP address of the IBM Cloud Private instance from where the CLI will be obtained.
+Replace __&#60;VERSION&#62;__ and __&#60;ICP IP&#62;__ with the instructor provided version an  IP address of the IBM Cloud Private instance from where the CLI will be obtained.
 
 ```
-curl -kLo cloudctl-linux-amd64-3.1.1-973 https://<ICP IP>:8443/api/cli/cloudctl-linux-amd64
+curl -kLo cloudctl-linux-amd64-<VERSION> https://<ICP IP>:8443/api/cli/cloudctl-linux-amd64
 ```
 	
 Example file name from the above curl command:
@@ -126,10 +144,11 @@ Example file name from the above curl command:
 </p>
 
 
-2 - Rename the above downloaded file to kubectl.  
+2 - Rename the above downloaded file to kubectl.  Replace __&#60;VERSION&#62;__ with the instructor provided version.
+
 
 ```
-mv cloudctl-linux-amd64-3.1.1-973 cloudctl
+mv cloudctl-linux-amd64-<VERSION> cloudctl
 ```	
 
 3 - Make the kubectl binary executable.
@@ -157,10 +176,10 @@ sudo mv ./cloudctl /usr/local/bin/cloudctl
 
 1 - Download the Windows CLI to install.
 
-Replace <ICP IP> with the IP address of the IBM Cloud Private instance from where the CLI will be obtained.
+Replace __&#60;VERSION&#62;__ and __&#60;ICP IP&#62;__ with the instructor provided version an  IP address of the IBM Cloud Private instance from where the CLI will be obtained.
 
 ```
-curl -kLo cloudctl-win-amd64-3.1.1-973.exe https://<ICP IP>:8443/api/cli/cloudctl-win-amd64.exe
+curl -kLo cloudctl-win-amd64-<VERSION>.exe https://<ICP IP>:8443/api/cli/cloudctl-win-amd64.exe
 ```
 	
 Example file name from the above curl command:
