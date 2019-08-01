@@ -3,22 +3,22 @@
 apiVersion: apps/v1    
 kind: Deployment
 metadata:
-  name: <team>-house
-  namespace: <team>
+  name: crimson-house
+  namespace: crimson
   labels:
-    app: <team>-house
+    app: crimson-house
 spec:
   selector:
     matchLabels:
-      app: <team>-house
+      app: crimson-house
   replicas: 1
   template:
     metadata:
       labels:
-        app: <team>-house
+        app: crimson-house
     spec:
       containers:
-      - name: <team>-house
+      - name: crimson-house
         image: ibmicpcoc/house:latest
         imagePullPolicy: Always
         env:
